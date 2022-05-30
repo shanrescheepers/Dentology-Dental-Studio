@@ -1,16 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
-import { useEffect } from 'react';
-import { getReceptionistsFunction } from './http/receptionist';
+// import { useEffect } from 'react';
+// import { createReceptionist, deleteReceptionist, updateReceptionist, getReceptionists } from './http/receptionist';
+// REËL: As my terminal nie die groen SUCCESFULLY compiled wys nie, maak jy nie jou donerse file of laptop toe nie. Right? Right? RIGHT.
 
 function App() {
-
-  useEffect(() => {
-    getReceptionistsFunction().then(receptionists => {
-      console.log(receptionists);
-    });
-  }, [])
-
   return (
     <div className="App">
 
