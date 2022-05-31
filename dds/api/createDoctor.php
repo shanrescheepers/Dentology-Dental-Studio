@@ -16,13 +16,13 @@
     $doctor = json_decode( file_get_contents('php://input') );
   
     // set sql statement, this is the action.	
-    $sql = "INSERT INTO doctor (doctorId, name,surname, genderId, profileImage, age, phone, email, password,  spesId) VALUES(:name, :surname, :age, :genderId, :phone, :email, :password, :profileImage, :rankId)";
+    $sql = "INSERT INTO doctor (name,surname, genderId, profileImage, age, phone, email, password,  spesId) VALUES(:name, :surname, :age, :genderId, :phone, :email, :password, :profileImage, :spesId)";
 
     // This connects to my sql
     $stmt = $conn->prepare($sql);
   
     // Setting values into the variables
-    $stmt->bindParam(':doctorId', $doctor->doctorId);
+
     $stmt->bindParam(':name', $doctor->name);
     $stmt->bindParam(':surname', $doctor->surname);
     $stmt->bindParam(':genderId', $doctor->genderId);

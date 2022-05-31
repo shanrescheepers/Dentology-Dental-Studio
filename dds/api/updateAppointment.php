@@ -16,10 +16,10 @@
     $appointment = json_decode( file_get_contents('php://input') );
   
     // <!-- apptId	dateTime	docId	recepId	isDone -->
-    
+
     // set sql statement, this is the action - The Action.
     // stuur die PK, saam met die values wat ge-update moet word. dan hy werk op die PK vir main referencing
-    $sql = "UPDATE appointment SET apptId= :apptId, dateTime= :dateTime, docId= :docId, recepId= :recepId, isDone= :isDone WHERE apptId= :apptId";
+    $sql = "UPDATE appointment SET dateTime= :dateTime, docId= :docId, recepId= :recepId, isDone= :isDone. patientId= :patientId, reason= :reason WHERE apptId= :apptId";
 
     // This connects to my sql
     $stmt = $conn->prepare($sql);
@@ -30,7 +30,10 @@
     $stmt->bindParam(':dateTime', $appointment->dateTime);
     $stmt->bindParam(':docId', $appointment->docId);
     $stmt->bindParam(':recepId', $appointment->recepId);
-    
+    $stmt->bindParam(':isDone', $appointment->isDone);
+    $stmt->bindParam(':patientId', $appointment->patientId);
+    $stmt->bindParam(':reason', $appointment->reason);
+
     // Executing above
     if($stmt->execute()) {
         $response = ['status' => 1, 'message' => 'appointment updated successfully.'];
@@ -40,3 +43,4 @@
     // encoding here, sending it back to the Front-End
     echo json_encode($response);
 ?>
+<!-- DONE -->

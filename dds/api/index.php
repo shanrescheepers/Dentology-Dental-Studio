@@ -16,3 +16,5 @@
 
   echo json_encode($result);       
 ?>
+
+<!-- kyk net, dit is dieselfde as getReceptionist, verander dit in jou js file, waar jy die url endpoint hit. -->

@@ -11,7 +11,9 @@
     // New object of dbConnect class
     $objDb = new DbConnect;
     $conn = $objDb->connect();
+
     // <!-- apptId	dateTime	docId	recepId	isDone -->
+    
     // receptionist coming back from our front-end
     // php:// is alles wat inkim, kry al die cintents van dit, basies die json obj
     $appointment = json_decode( file_get_contents('php://input') );
