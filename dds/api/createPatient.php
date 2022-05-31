@@ -35,21 +35,21 @@ medAidNum
   
     // Setting values into the variables
  
-    $stmt->bindParam(':name', $receptionist->name);
-    $stmt->bindParam(':surname', $receptionist->surname);
-    $stmt->bindParam(':age', $receptionist->age);
-    $stmt->bindParam(':genderId', $receptionist->genderId);
-    $stmt->bindParam(':email', $receptionist->email);
-    $stmt->bindParam(':password', $receptionist->password);
-    $stmt->bindParam(':profileImage', $receptionist->profileImage);
-    $stmt->bindParam(':phone', $receptionist->phone);
-    $stmt->bindParam(':medAidNum', $receptionist->medAidNum);
+    $stmt->bindParam(':name', $patient->name);
+    $stmt->bindParam(':surname', $patient->surname);
+    $stmt->bindParam(':age', $patient->age);
+    $stmt->bindParam(':genderId', $patient->genderId);
+    $stmt->bindParam(':email', $patient->email);
+    $stmt->bindParam(':password', $patient->password);
+    $stmt->bindParam(':profileImage', $patient->profileImage);
+    $stmt->bindParam(':phone', $patient->phone);
+    $stmt->bindParam(':medAidNum', $patient->medAidNum);
   
     // Executing above
     if($stmt->execute()) {
-        $response = ['status' => 1, 'message' => 'Receptionist record created successfully.'];
+        $response = ['status' => 1, 'message' => 'patient record created successfully.'];
     } else {
-        $response = ['status' => 0, 'message' => 'Failed to create receptionist.'];
+        $response = ['status' => 0, 'message' => 'Failed to create patient.'];
     }
     // encoding here, sending it back to the Front-End
     echo json_encode($response);

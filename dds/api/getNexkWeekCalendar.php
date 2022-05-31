@@ -9,7 +9,12 @@
   $objDb = new DbConnect;
   $conn = $objDb->connect();
 
-  $sql = "SELECT * FROM calendar";  
+  // FFN: Google how date time works in sql. Dan moet ons watch hoe de moer ons future dates kan maak in sql.
+  //      Dit sal dan so iets lyk:
+  //      SELECT * FROM appointment WHERE dateTime >= (Vandag se datum) && dateTime <= (N future datum)
+  //      PS: NexkWekk
+
+  $sql = "SELECT * FROM appointment WHERE dateTime ";  
   $stmt = $conn->prepare($sql);
   $stmt->execute();
   $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
