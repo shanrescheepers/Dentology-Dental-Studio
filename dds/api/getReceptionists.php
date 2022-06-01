@@ -12,6 +12,7 @@
   $sql = "SELECT * FROM receptionist";  
   $stmt = $conn->prepare($sql);
   $stmt->execute();
+  //   $result = mysqli_query($conn, $sql); Onder doen presies dieselfde
   $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
   echo json_encode($result);       

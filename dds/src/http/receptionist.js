@@ -52,7 +52,6 @@ export function updateReceptionist(receptionist) {
     }).then(data => data)
 }
 export function deleteReceptionist(receptionistId) {
-
     return axios.post('http://localhost:8888/ddsapi/deleteReceptionist.php', {
         // Wrapping - JSONd data wat gestuur word.
         id: receptionistId,
