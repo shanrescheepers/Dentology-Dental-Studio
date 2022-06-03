@@ -1,5 +1,3 @@
-
-
 /* Colors ROOT */
 :root{
     --lightgrey: #DCE3E6;
@@ -20,16 +18,8 @@
 
 
 }
-.illustration-doc{
-    background-image: url(../assets/images/morning-msg-img.svg);
-    background-size: cover;
-    height: 260px;
-    width: 260px;
-    margin-top: 20px;
-    background-repeat: no-repeat;
-    border-radius: 130px;
-}
-.doctor-page-main-dash{
+
+.patient-page-main-dash{
     /* background: #f9f0f9; */
     height: 100vh !important;
     width: 100%;
@@ -50,39 +40,123 @@
     float: right;
 
 }
-.doctor-profiles{
+.patient-profiles{
     float: left;
 }
-.card, .doctor1{
-    height: 350px;
-    width: 250px !important;
+.card, .p1, .p2{
+    height: 225px;
+    width: 200px !important;
     background-color: #dfd8dc;
     border-radius: 20px;
     margin-left: 290px;
     margin-top: 30px;
     box-shadow: 0 1px 4px rgba(137, 137, 137, 0.6);
-
 }
-.card-image-top,.doctor1-pfp{
+/* Muneeba */
+.p3{
+    height: 225px;
+    width: 200px !important;
+    background-color: #dfd8dc;
+    border-radius: 20px;
+    float: left;
+    margin-left: 500px;
+    margin-top: -224px;
+    box-shadow: 0 1px 4px rgba(137, 137, 137, 0.6);
+}
+.p4{
+    height: 225px;
+    width: 200px !important;
+    background-color: #dfd8dc;
+    border-radius: 20px;
+    float: left;
+    margin-left: 710px;
+    margin-top: -480px;
+    box-shadow: 0 1px 4px rgba(137, 137, 137, 0.6);
+}
+.p5{
+    height: 225px;
+    width: 200px !important;
+    background-color: #dfd8dc;
+    border-radius: 20px;
+    float: left;
+    margin-left: 500px;
+    margin-top: -482px;
+    box-shadow: 0 1px 4px rgba(137, 137, 137, 0.6);
+}
+.p6{
+    height: 225px;
+    width: 200px !important;
+    background-color: #dfd8dc;
+    border-radius: 20px;
+    float: left;
+    margin-left: 710px;
+    margin-top: -224px;
+    box-shadow: 0 1px 4px rgba(137, 137, 137, 0.6);
+}
+.card-image-top,.ppfp1{
     padding-top: 10px;
     margin-top: 10px;
-    background-image: url(../assets/images/dentist-1.jpeg);
+    background-image: url(../assets/images/female1.jpeg);
     background-size: cover;
-    width: 130px;
-    height: 130px;
-    border-radius: 50px;
-    background-color: #dfd8dc;
-    ;
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    background-color: #AEE1EE;
     text-align: center;
 }
-.card-image-top,.doctor2-pfp{
+.card-image-top,.ppfp2{
     padding-top: 10px;
     margin-top: 10px;
-    background-image: url(../assets/images/dentist-2.jpeg);
+    background-image: url(../assets/images/male2.jpeg);
     background-size: cover;
-    width: 130px;
-    height: 130px;
-    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    background-color: #AEE1EE;
+    text-align: center;
+}
+.card-image-top,.ppfp3{
+    padding-top: 10px;
+    margin-top: 10px;
+    background-image: url(../assets/images/female2.jpeg);
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    background-color: #AEE1EE;
+    text-align: center;
+}
+.card-image-top,.ppfp4{
+    padding-top: 10px;
+    margin-top: 10px;
+    background-image: url(../assets/images/male1.jpeg);
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    background-color: #AEE1EE;
+    text-align: center;
+}
+.card-image-top,.ppfp5{
+    padding-top: 10px;
+    margin-top: 10px;
+    background-image: url(../assets/images/female7.jpeg);
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    background-color: #AEE1EE;
+    text-align: center;
+}
+.card-image-top,.ppfp6{
+    padding-top: 10px;
+    margin-top: 10px;
+    background-image: url(../assets/images/female5.jpeg);
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    background-color: #AEE1EE;
     text-align: center;
 }
 .card-image{
@@ -99,7 +173,7 @@
     text-align: center;
     border: transparent;
     box-shadow: 0 1px 4px rgba(137, 137, 137, 0.6);
-    background-color: #dfd8dc !important;
+    background-color: #ff707eb3;
 }
 .card-text, .card-title, .spes{
 text-align: center;
@@ -117,7 +191,7 @@ margin-left: -10px;
     margin-left: 600px;
     margin-top: -350px;
     box-shadow: 0 1px 4px rgba(137, 137, 137, 0.6);
-    background-color: #dfd8dc !important;
+    background-color: #AEE1EE;
 }
 .form-control{
     align-items: center;

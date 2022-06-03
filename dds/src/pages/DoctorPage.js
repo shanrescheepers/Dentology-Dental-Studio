@@ -84,6 +84,7 @@ export function DoctorPage() {
                     </div>
                 </div>
                 <div className='add-doctor-panel'>
+                    <svg className='illustration-doc'></svg>
                     <h2>Add a Doctor</h2>
                     <Form className='doctor-form'>
                         <Form.Control type="name" placeholder="Doctor Name" className='doc-name-input' />
