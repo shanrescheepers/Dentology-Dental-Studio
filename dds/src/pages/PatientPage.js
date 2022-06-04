@@ -1,144 +1,138 @@
-import '../css/patient.css';
+
 import React from 'react';
 import { Card, Button, ListGroup, ListGroupItem, Form } from 'react-bootstrap';
-
+import '../css/patientPage.css';
 
 export function PatientPage() {
     return (
         <section>
             <div className='patient-page-main-dash'>
+                <div className='patients'>
 
+                    <div className='patient-profiles'>
+                        <h1> Existing patients in DDS system</h1>
+                        <div className='p1'>
+                            <Card className='p1'>
+                                <div className='pfp1' />
 
-                <div className='patient-profiles'>
-                    <div className='dr-1'>
-                        <Card style={{ width: '18rem' }} className='p1'>
-                            <Card.Img variant="top" className='ppfp1' />
-                            <Card.Body className='card-body'>
-                                <Card.Title>Shanre Scheepers</Card.Title>
-                                <p className='spes'>
+                                <p className='pp'>Shanre Scheepers</p>
+                                <p className='medaid'>
                                     12345678</p>
-                                <hr></hr>
 
-                            </Card.Body>
-                            <ListGroup className="list-group-flush">
-                                <ListGroupItem className='gender'>Female</ListGroupItem>
-                                <ListGroupItem className='age'>Age: 26</ListGroupItem>
-                                <ListGroupItem className='cell-no'>0827559178</ListGroupItem>
-                                <ListGroupItem className='cell-no'>shanrescheepers@gmail.com</ListGroupItem>
-                            </ListGroup>
-                            <Card.Body>
-                                {/* <Card.Link href="#">Card Link</Card.Link>
-                            <Card.Link href="#">Another Link</Card.Link> */}
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    <div className='dr-2'>
-                        <Card style={{ width: '18rem' }} className='p2'>
-                            <Card.Img variant="top" className='ppfp2' />
-                            <Card.Body className='card-body'>
-                                <Card.Title>Jakobus Verster</Card.Title>
-                                <p className='spes'>
-                                    7652067</p>
-                                <hr></hr>
+                                <ListGroup className="list-group-flush">
+                                    <ListGroupItem className='gender'>Female</ListGroupItem>
+                                    <ListGroupItem className='age'>Age: 26</ListGroupItem>
+                                    <ListGroupItem className='cell-no'>0827559178</ListGroupItem>
+                                    <ListGroupItem className='cell-no'>shanrescheepers@gmail.com</ListGroupItem>
+                                </ListGroup>
 
-                            </Card.Body>
-                            <ListGroup className="list-group-flush">
-                                <ListGroupItem className='gender'>Male</ListGroupItem>
-                                <ListGroupItem className='age'>Age: 19</ListGroupItem>
-                                <ListGroupItem className='cell-no'>0827669176</ListGroupItem>
-                                <ListGroupItem className='cell-no'>franco@arrowhead.com</ListGroupItem>
-                            </ListGroup>
-                            <Card.Body>
-                                {/* <Card.Link href="#">Card Link</Card.Link>
-                            <Card.Link href="#">Another Link</Card.Link> */}
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    <div className='dr-3'>
-                        <Card style={{ width: '18rem' }} className='p3'>
-                            <Card.Img variant="top" className='ppfp3' />
-                            <Card.Body className='card-body'>
-                                <Card.Title>Muneeba Akbar</Card.Title>
-                                <p className='spes'>
-                                    20222123</p>
-                                <hr></hr>
+                            </Card>
+                        </div>
 
-                            </Card.Body>
-                            <ListGroup className="list-group-flush">
-                                <ListGroupItem className='gender'>Female</ListGroupItem>
-                                <ListGroupItem className='age'>Age: 29</ListGroupItem>
-                                <ListGroupItem className='cell-no'>082456890</ListGroupItem>
-                                <ListGroupItem className='cell-no'>muneebakbar@gmail.com</ListGroupItem>
-                            </ListGroup>
-                            <Card.Body>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    <div className='dr-3'>
-                        <Card style={{ width: '18rem' }} className='p4'>
-                            <Card.Img variant="top" className='ppfp4' />
-                            <Card.Body className='card-body'>
-                                <Card.Title>Emil Scheepers</Card.Title>
-                                <p className='spes'>
-                                    26083456</p>
-                                <hr></hr>
+                        <div className='p2'>
+                            <Card style={{ width: '18rem' }} className='p2'>
+                                <div className='pfp2' />
+                                <Card.Body>
+                                    <p className='pp'>Jakobus Verster</p>
+                                    <p className='medaid'>
+                                        7652067</p>
 
-                            </Card.Body>
-                            <ListGroup className="list-group-flush">
-                                <ListGroupItem className='gender'>Male</ListGroupItem>
-                                <ListGroupItem className='age'>Age: 26</ListGroupItem>
-                                <ListGroupItem className='cell-no'>082456890</ListGroupItem>
-                                <ListGroupItem className='cell-no'>emilscheepers@gmail.com</ListGroupItem>
-                            </ListGroup>
-                            <Card.Body>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    <div className='dr-3'>
-                        <Card style={{ width: '18rem' }} className='p5'>
-                            <Card.Img variant="top" className='ppfp5' />
-                            <Card.Body className='card-body'>
-                                <Card.Title>Tersia Scheepers</Card.Title>
-                                <p className='spes'>
-                                    20222123</p>
-                                <hr></hr>
+                                    <ListGroup className="list-group-flush">
+                                        <ListGroupItem className='gender'>Male</ListGroupItem>
+                                        <ListGroupItem className='age'>Age: 19</ListGroupItem>
+                                        <ListGroupItem className='cell-no'>0827669176</ListGroupItem>
+                                        <ListGroupItem className='cell-no'>franco@arrowhead.com</ListGroupItem>
+                                    </ListGroup>
+                                </Card.Body>
+                            </Card>
+                        </div>
 
-                            </Card.Body>
-                            <ListGroup className="list-group-flush">
-                                <ListGroupItem className='gender'>Female</ListGroupItem>
-                                <ListGroupItem className='age'>Age: 29</ListGroupItem>
-                                <ListGroupItem className='cell-no'>082456890</ListGroupItem>
-                                <ListGroupItem className='cell-no'>muneebakbar@gmail.com</ListGroupItem>
-                            </ListGroup>
-                            <Card.Body>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    <div className='dr-3'>
-                        <Card style={{ width: '18rem' }} className='p6'>
-                            <Card.Img variant="top" className='ppfp6' />
-                            <Card.Body className='card-body'>
-                                <Card.Title>Megan Viljoen</Card.Title>
-                                <p className='spes'>
-                                    20222123</p>
-                                <hr></hr>
+                        <div className='p3'>
+                            <Card style={{ width: '18rem' }} className='p3'>
+                                <div className='pfp3' />
+                                <Card.Body>
+                                    <p className='pp'>Muneeba Akbar</p>
+                                    <p className='medaid'>
+                                        20222123</p>
 
-                            </Card.Body>
-                            <ListGroup className="list-group-flush">
-                                <ListGroupItem className='gender'>Female</ListGroupItem>
-                                <ListGroupItem className='age'>Age: 29</ListGroupItem>
-                                <ListGroupItem className='cell-no'>082456890</ListGroupItem>
-                                <ListGroupItem className='cell-no'>muneebakbar@gmail.com</ListGroupItem>
-                            </ListGroup>
-                            <Card.Body>
-                            </Card.Body>
-                        </Card>
+                                </Card.Body>
+                                <ListGroup className="list-group-flush">
+                                    <ListGroupItem className='gender'>Female</ListGroupItem>
+                                    <ListGroupItem className='age'>Age: 29</ListGroupItem>
+                                    <ListGroupItem className='cell-no'>082456890</ListGroupItem>
+                                    <ListGroupItem className='cell-no'>muneebakbar@gmail.com</ListGroupItem>
+                                </ListGroup>
+                            </Card>
+                        </div>
+
+                        <div className='p4'>
+                            <Card style={{ width: '18rem' }} className='p4'>
+                                <div className='pfp4' />
+                                <Card.Body>
+                                    <p className='pp'>Emil Scheepers</p>
+                                    <p className='medaid'>
+                                        26083456</p>
+
+                                </Card.Body>
+                                <ListGroup className="list-group-flush">
+                                    <ListGroupItem className='gender'>Male</ListGroupItem>
+                                    <ListGroupItem className='age'>Age: 26</ListGroupItem>
+                                    <ListGroupItem className='cell-no'>082456890</ListGroupItem>
+                                    <ListGroupItem className='cell-no'>emilscheepers@gmail.com</ListGroupItem>
+                                </ListGroup>
+                            </Card>
+                        </div>
+
+
+                        <div className='p5'>
+                            <Card style={{ width: '18rem' }} className='p5'>
+                                <div className='pfp5' />
+                                <Card.Body>
+                                    <p className='pp'>Tersia Scheepers</p>
+                                    <p className='medaid'>
+                                        20222123</p>
+
+                                </Card.Body>
+                                <ListGroup className="list-group-flush">
+                                    <ListGroupItem className='gender'>Female</ListGroupItem>
+                                    <ListGroupItem className='age'>Age: 29</ListGroupItem>
+                                    <ListGroupItem className='cell-no'>082456890</ListGroupItem>
+                                    <ListGroupItem className='cell-no'>muneebakbar@gmail.com</ListGroupItem>
+                                </ListGroup>
+                            </Card>
+                        </div>
+
+
+
+                        <div className='p6'>
+                            <Card style={{ width: '18rem' }} className='p6'>
+                                <div className='pfp6' />
+                                <Card.Body>
+                                    <p className='pp'>Megan Viljoen</p>
+                                    <p className='medaid'>
+                                        20222123</p>
+
+                                </Card.Body>
+                                <ListGroup className="list-group-flush">
+                                    <ListGroupItem className='gender'>Female</ListGroupItem>
+                                    <ListGroupItem className='age'>Age: 29</ListGroupItem>
+                                    <ListGroupItem className='cell-no'>082456890</ListGroupItem>
+                                    <ListGroupItem className='email'>muneebakbar@gmail.com</ListGroupItem>
+                                </ListGroup>
+                            </Card>
+                        </div>
                     </div>
+
+
+
                 </div>
-                <div className='add-doctor-panel'>
-                    <h2>Add A New Patient</h2>
 
-                    {/* <Form>
+
+            </div>
+            <div className='add-patient-panel'>
+                <h2 className='add-patient-h2'>+Patient</h2>
+
+                {/* <Form>
                             <Form.Control type="name" placeholder="Patient Name" className='patient-name-input' />
                             <br />
                             <Form.Control type="surname" placeholder="Patient Surname" className='patient-surname-input' />
@@ -161,25 +155,25 @@ export function PatientPage() {
                             </Button>
                         </Form> */}
 
-                    <Form className='doctor-form'>
-                        <Form.Control type="name" placeholder="Patient Name" className='doc-name-input' />
-                        <br />
-                        <Form.Control type="surname" placeholder="Patient Surname" className='doc-surname-input' />
-                        <br />
-                        <Form.Control type="varchar" placeholder="Medical Aid Nr" className='spes-input' />
-                        <Form.Control type="email" placeholder="Patient Email" className='doc-email-input' />
-                        <Form.Control type="text" placeholder="Patient Password" className='doc-pass' />
-                        <Form.Control type="text" placeholder="Patient Age" className='doc-age' />
-                        <Form.Control type="text" placeholder="Patient Gender" className='doc-gender' />
-                        <Form.Control type="varchar" placeholder="Patient Phone Number" className='doc-number-input' />
+                <Form className='add-patient-form'>
+                    <Form.Control type="name" placeholder="Patient Name" className='p-name-input' />
+                    <br />
+                    <Form.Control type="surname" placeholder="Patient Surname" className='p-surname-input' />
+                    <br />
+                    <Form.Control type="varchar" placeholder="Medical Aid Nr" className='aid-input' />
+                    <Form.Control type="email" placeholder="Patient Email" className='p-email-input' />
+                    <Form.Control type="text" placeholder="Patient Password" className='p-pass' />
+                    <Form.Control type="text" placeholder="Patient Age" className='p-age' />
+                    <Form.Control type="text" placeholder="Patient Gender" className='p-gender' />
+                    <Form.Control type="varchar" placeholder="Patient Phone Number" className='p-number-input' />
 
-                        <br></br>
-                        <Button variant="primary" type="submit" className='add-new-doc'>
-                            add doctor
-                        </Button>
-                    </Form>
-                </div>
+                    <br></br>
+                    <Button variant="primary" type="submit" className='add-new-doc'>
+                        SUBMIT
+                    </Button>
+                </Form>
             </div>
+
         </section >
     );
 };

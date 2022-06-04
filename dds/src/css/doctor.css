@@ -46,60 +46,94 @@
     background-color: #d9d4e7;
     height: 100vh !important;
     width: 25%;
-    z-index: 3 !important;
     float: right;
-
+display: block;
 }
 .doctor-profiles{
-    float: left;
+   display: block;
+margin-right: 40%x;
 }
-.card, .doctor1{
+.doctor1{
     height: 350px;
     width: 250px !important;
-    background-color: #dfd8dc;
+    background-color: aqua;
     border-radius: 20px;
-    margin-left: 290px;
     margin-top: 30px;
     box-shadow: 0 1px 4px rgba(137, 137, 137, 0.6);
-
+    background-color: #AEE1EE;
 }
-.card-image-top,.doctor1-pfp{
+.doctor1-pfp{
     padding-top: 10px;
     margin-top: 10px;
     background-image: url(../assets/images/dentist-1.jpeg);
     background-size: cover;
-    width: 130px;
-    height: 130px;
+    width: 90px !important;
+    height: 90px !important;
     border-radius: 50px;
-    background-color: #dfd8dc;
-    ;
     text-align: center;
 }
-.card-image-top,.doctor2-pfp{
+.doctor2-pfp{
     padding-top: 10px;
     margin-top: 10px;
     background-image: url(../assets/images/dentist-2.jpeg);
     background-size: cover;
-    width: 130px;
-    height: 130px;
+    width: 90px !important;
+    height: 90px !important;
     border-radius: 50px;
     text-align: center;
 }
-.card-image{
-    border: transparent;
+.card {
+    height: 225px;
+    width: 258px !important;
+    background-color: #dfd8dc;
+    border-radius: 20px;
+    margin-left: 290px;
+    margin-top: 30px;
+    box-shadow: 0 1px 4px rgb(137 137 137 / 60%);
 }
-.card-image-top,.doctor3-pfp{
+.dr-1{
+    margin-left: 500px !important;
+    float: left;
+}
+.dr-2{
+    float: left;
+    margin-left: 310px !important;
+
+}
+.dr-3{
+    float: left;
+    margin-top: 380px;
+    margin-left: 1px;
+}
+.doctor1 ,.card{
+    display: table-row !important; 
+    grid-row: 1fr 1fr 1fr !important;
+    height: 350px !important;
+    margin-left: -200px;
+    width: 250px !important;
+}
+.doctor2, .card{
+    display: table-row !important;
+    grid-row: 1fr 1fr 1fr !important;
+    width: 250px !important;
+    height: 350px !important;
+}
+.doctor3, .card{
+    display: table-row;
+    float: right !important;
+    height: 350px !important;
+    margin-right: -200px !important;
+    width: 250px !important;
+}
+.doctor3-pfp{
     padding-top: 10px;
     margin-top: 10px;
     background-image: url(../assets/images/r3.png);
     background-size: cover;
-    width: 130px;
-    height: 130px;
+    width: 90px !important;
+    height: 90px !important;
     border-radius: 50px;
     text-align: center;
-    border: transparent;
-    box-shadow: 0 1px 4px rgba(137, 137, 137, 0.6);
-    background-color: #dfd8dc !important;
 }
 .card-text, .card-title, .spes{
 text-align: center;
@@ -112,13 +146,13 @@ margin-left: -10px;
     font-family: 'Nanum Gothic', sans-serif !important;
 }
 
-.card .dr2, .doctor2{
+/* .card .dr2, .doctor2{
     float: left;
     margin-left: 600px;
     margin-top: -350px;
     box-shadow: 0 1px 4px rgba(137, 137, 137, 0.6);
-    background-color: #dfd8dc !important;
-}
+    background-color: #AEE1EE;
+} */
 .form-control{
     align-items: center;
     margin-top: 20px;
@@ -172,9 +206,9 @@ float: left;
 }
 h2{
     font-family: 'Nanum Gothic', sans-serif !important;
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: -30px;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .doc-gender{
@@ -193,6 +227,10 @@ width: 100px;
 height: 35px;
 margin-left: 100px;
 }
+h2.doctor-h2{
+ width: 100px;
+    margin-left: 50px;
+}
 .add-new-doc:hover{
     background-color: #FF707F;
     float: left;
@@ -202,7 +240,7 @@ margin-left: 100px;
     margin-left: 100px;
     }
 .doctor-form{
-    margin-top: -20px;
+    margin-top: 10px;
     margin-left: 30px;
 background-color: #ffffff;
     width: 300px;

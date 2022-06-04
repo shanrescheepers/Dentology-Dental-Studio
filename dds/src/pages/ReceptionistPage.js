@@ -17,8 +17,8 @@ export function ReceptionistPage() {
 
                 {/* WELCOME BLOCK */}
                 <div className="welcome-block">
-                    <h1 className='gm'>Good morning, Iman.</h1>
-                    <p className='wtdh'>Co-ordinate & organise all scheduled<br /> and new appointments with ease.</p>
+                    <h2 className='gm'>Good morning,Iman.</h2>
+
                     <h4 className='cc'><br />Have a great day at work!</h4>
                     <div id='illustration'></div>
                 </div>
@@ -35,7 +35,7 @@ export function ReceptionistPage() {
                             <br />
                             <Form.Control type="surname" placeholder="Patient Surname" className='patient-surname-input' />
                             <br />
-                            <Form.Control type="varchar" placeholder="Medical Aid Nr" className='medicalaid-input' />
+                            <Form.Control type="text" placeholder="Medical Aid Nr" className='ma-input' />
                             <Form.Control type="date" className='date'></Form.Control>
 
                             <Form.Select className='doctor-dropdown'>

@@ -1,0 +1,151 @@
+/* Sidenav Styling */
+.sidenav {    
+
+    background: rgba(14, 45, 154, 0.906);
+    background: linear-gradient(324deg, rgb(204, 228, 243) 7%, rgb(255, 255, 255) 50%, rgba(128, 152, 167, 0.139) 60%);
+    width: 11%;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    border-top-right-radius: -55px;
+    border-bottom-right-radius: 25px;
+    position: fixed;
+    /* box-shadow:  5px 5px 10px #acacac,
+            -2px -5px 10px #252525; */
+}
+
+/* DDS Logo on SideNav */
+.dds-logo{
+    background-image: url(../assets/images/dentology-logo.svg);
+    background-size: cover;
+    height: 90px;
+    width: 90px;
+    float: left;
+    padding: 10px;
+    text-align: center;
+    margin: 20px;
+}
+/* End of DDS Logo on SideNav */
+
+
+.signin-signout-icon{
+    position: relative;
+    width: 55px;
+    height: 55px;
+    display: block;
+    background-image: url(../assets/images/signin-signout-icon.svg);
+    background-repeat: no-repeat;
+    margin-top: 50px;
+    margin-left: 18px;
+  
+}
+/* NAV LINK POSITION  */
+.navLinks ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    padding-left: 5px;
+    padding-top: 50px;
+    }
+    /* End of NAV LINK POSITION  */
+    
+    /* NAV LINKS */
+     ul li {
+    text-align: center;
+        list-style: none;
+        top: 0;
+        left: 0;
+        width: auto;
+        padding-left: 30px;
+       
+    }
+    
+    /* ICONS */
+    /* DASHBOARD ICON */
+    .dash-icon {  
+        position: relative;
+        width: 55px;
+        height: 55px;
+        display: block;
+        background-image: url(../assets/images/home-icon.svg);
+        background-repeat: no-repeat;
+        margin-top: 50px;
+        margin-left: 18px;
+        margin-top: 200px;
+        cursor: pointer;
+    }
+    .dash-icon:hover{
+        background-image: url(../assets/images/dash-hover.svg);
+        cursor: pointer;
+    }
+    
+    /* NAV RECEPTIONIST ICON */
+    .receptionist-icon {  
+        position: relative;
+        width: 55px;
+        height: 55px;
+        display: block;
+        background-image: url(../assets/images/user-icon.svg);
+        background-repeat: no-repeat;
+        margin-left: 18px;
+        cursor: pointer;
+    }
+    .receptionist-icon:hover{
+        background-image: url(../assets/images/user-hover.svg);
+        cursor: pointer;
+    }
+    
+    .doctor-icon{
+        position: relative;
+        width: 55px;
+        height: 55px;
+        display: block;
+        background-image: url(../assets/images/doc-icon.svg);
+        background-repeat: no-repeat;
+        margin-left: 18px; 
+        cursor: pointer;
+    }
+    .crud-icon{
+        position: relative;
+        width: 55px;
+        height: 55px;
+        display: block;
+        background-image: url(../assets/images/add-icon.svg);
+        background-repeat: no-repeat;
+        margin-left: 18px;
+        cursor: pointer;
+    }
+    .crud-icon:hover{
+        background-image: url(../assets/images/crud-hover.svg);
+        cursor: pointer;
+    }
+    
+    /* End of NAV RECEPTIONIST ICON HOVER */
+    .patient-icon{
+        width: 55px;
+        height: 55px;
+        background-image: url(../assets/images/doctor-icon.svg);
+        background-repeat: no-repeat;
+        margin-left: 18px;  
+        cursor: pointer;
+    }
+    .patient-icon:hover{
+        width: 55px;
+        height: 55px;
+        background-image: url(../assets/images/doctor-icon.svg);
+        background-repeat: no-repeat;
+        margin-left: 18px;  
+        cursor: pointer;
+    }
+    .add-icon{
+        background-image: url(../assets/images/add-icon.svg);
+        background-repeat: no-repeat;
+        width: 20px;
+        height: 20px; 
+        z-index: 999;
+        margin-left: -27px;
+        margin-top: 6px;
+        cursor: pointer;
+    }
+    

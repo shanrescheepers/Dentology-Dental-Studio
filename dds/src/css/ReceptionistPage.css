@@ -18,25 +18,27 @@
    
     
 }
-h1 ,.gm{
+h2 ,.gm{
     font-family: 'Roboto', sans-serif;
-    margin-left: 165px;
+    margin-left: 200px;
     margin-top:10px;
+    width: 100px !important;
+    text-align: initial;
     padding-bottom: 2px;
 }
 h4, .cc{
     font-family: 'Nanum Gothic', sans-serif !important;
     font-weight:normal;
     font-size: 13px;
-    margin-left: 225px;
+    margin-left: 200px;
     text-align:start;
-    margin-top: -10px;
+    margin-top: 10px;
 }
 p,.wtdh{
     font-size: 10px;
     text-align: left;
     margin-left: 180px;
-    margin-top: -15px;
+    margin-top: -15px !important;
     text-align: center;
 }
 .receptionist-page-main-dash{
@@ -67,7 +69,7 @@ p,.wtdh{
     height: 138px;
     float: left;
     margin-left: -7px;
-    margin-top:-139px;
+    margin-top:-138px;
     border-bottom-right-radius: 25px;
     border-top-right-radius:60px;
     transform: scaleX(-1);
@@ -152,14 +154,14 @@ margin-top: 1px;
 /* CALENDAR SECTION/APPOINTMENTS */
 .weekly-appointment-block{
     background-color: #ffffff;
-    height: 44%;
+    height: 46%;
     margin-top: 150px;
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     width:320px;
-    padding: 5px;
+    padding: 1px;
     margin-left: 40px;
 }
 
@@ -169,7 +171,7 @@ margin-top: 1px;
     width: 330px;
     margin-top: -10px;
     float: left;
-    margin-left: -5px;
+    margin-left: 15px;
     border-bottom-right-radius: 25px;
     border-bottom-left-radius: 25px;
 }
@@ -179,8 +181,9 @@ margin-top: 1px;
 }
 
 h2,.reception-week-overview{
-    margin-top: 30px;
+    margin-top: 10px;
     margin-bottom: 20px;
+    margin-left: 40px;
     padding-bottom: 10px;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -392,16 +395,17 @@ h4.june{
 }
 .date{
     width: 70px;
-    float: right;
-    margin-top: 10px;
+    float: left;
+    margin-top: -66px !important;
     color: rgb(113, 113, 113);
     font-size: 10px;
     height: 23px !important;
+    margin-left: 200px;
 }
-.medicalaid-input{
-    float: right;
-    margin-right: 20px;
-    margin-top: 10px;
+.ma-input{
+    float: left;
+    margin-left: 20px;
+  
 }
 .patient-name-input{
     float: left;
@@ -410,7 +414,7 @@ h4.june{
 }
 .patient-surname-input{
     float: left;
-    margin-left: 25px;
+    margin-left: 20px;
 }
 .form-control{
     width: 150px !important;
@@ -421,23 +425,23 @@ h4.june{
 }
 
 button.add-new-appointment{
-    width: 120px;
+    width: 150px;
     height: 30px;
     float: right;
-    margin-top: 50px;
-    margin-right: -110px;
+    margin-top: 25px;
+    margin-right:-110px;
     cursor: pointer;
-    border: 1px solid #4FAFD9;
-    background-color: rgb(252, 252, 252);
+    border: 1px solid #FF707F;
+    background-color: #d9d4e7;
 }
 button.add-new-appointment:hover{
-    background-color: #4FAFD9;
+    background-color: #FF707F;
 }
 /* TIME INPUT NEW APPOINTMENT */
 .time-input{
     float: right;
-    margin-right: 30px;
-    margin-top: 10px;
+    margin-right: 20px;
+    margin-top: -20px;
     width: 100px;
 }
 .react-datepicker__time-container, .react-datepicker__time {
@@ -491,10 +495,10 @@ button.add-new-appointment:hover{
     text-align: center;
     border-radius: 20px;
     width: 150px;
-    margin-left: 10px;
+    margin-left: 200px;
     border: none;
     height: 22px;
-    margin-top: 10px;
+    margin-top: -110px;
     float: left;
 }
 /* div.scheduled-appointments, table{
