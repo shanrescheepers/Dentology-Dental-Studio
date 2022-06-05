@@ -1,9 +1,36 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Button, ListGroup, ListGroupItem, Form } from 'react-bootstrap';
 import '../css/patientPage.css';
+import { createPatient } from '../http/patient';
 
 export function PatientPage() {
+
+    const [patient, setPatient] = useState({});
+
+
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setPatient(values => ({ ...values, [name]: value }))
+        console.log(patient)
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        if (patient.genderId === "Female") {
+            patient.genderId = 1
+        } else {
+            patient.genderId = 2
+        }
+
+        patient.medAidNum = parseInt(patient.medAidNum);
+        patient.age = parseInt(patient.age);
+
+        createPatient(patient).then(x => console.log(x));
+    }
+
     return (
         <section>
             <div className='patient-page-main-dash'>
@@ -155,20 +182,20 @@ export function PatientPage() {
                             </Button>
                         </Form> */}
 
-                <Form className='add-patient-form'>
-                    <Form.Control type="name" placeholder="Patient Name" className='p-name-input' />
+                <Form onSubmit={handleSubmit} className='add-patient-form'>
+                    <Form.Control value={patient.name || ""} onChange={handleChange} name="name" type="text" placeholder="Patient Name" className='p-name-input' />
                     <br />
-                    <Form.Control type="surname" placeholder="Patient Surname" className='p-surname-input' />
+                    <Form.Control value={patient.surname || ""} onChange={handleChange} name="surname" type="text" placeholder="Patient Surname" className='p-surname-input' />
                     <br />
-                    <Form.Control type="varchar" placeholder="Medical Aid Nr" className='aid-input' />
-                    <Form.Control type="email" placeholder="Patient Email" className='p-email-input' />
-                    <Form.Control type="text" placeholder="Patient Password" className='p-pass' />
-                    <Form.Control type="text" placeholder="Patient Age" className='p-age' />
-                    <Form.Control type="text" placeholder="Patient Gender" className='p-gender' />
-                    <Form.Control type="varchar" placeholder="Patient Phone Number" className='p-number-input' />
+                    <Form.Control value={patient.medAidNum || ""} onChange={handleChange} name="medAidNum" type="number" placeholder="Medical Aid Nr" className='aid-input' />
+                    <Form.Control value={patient.email || ""} onChange={handleChange} name="email" type="email" placeholder="Patient Email" className='p-email-input' />
+                    <Form.Control value={patient.password || ""} onChange={handleChange} name="password" type="password" placeholder="Patient Password" className='p-pass' />
+                    <Form.Control value={patient.age || ""} onChange={handleChange} name="age" type="number" placeholder="Patient Age" className='p-age' />
+                    <Form.Control value={patient.genderId || ""} onChange={handleChange} name="genderId" type="text" placeholder="Patient Gender" className='p-gender' />
+                    <Form.Control value={patient.phone || ""} onChange={handleChange} name="phone" type="tel" placeholder="Patient Phone Number" className='p-number-input' />
 
                     <br></br>
-                    <Button variant="primary" type="submit" className='add-new-doc'>
+                    <Button variant="primary" type="submit" className='add-new-patient'>
                         SUBMIT
                     </Button>
                 </Form>

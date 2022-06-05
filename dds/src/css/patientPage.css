@@ -55,10 +55,11 @@
     margin-left: 200px;
     margin-top: -21px;
 }
-.add-new-doc{
+.add-new-patient{
     float: right;
     background-color: #ffffff;
     border: 2px solid #9b7ded;
+    cursor: pointer;
     margin-right: 60px;
 }
 .pp{
