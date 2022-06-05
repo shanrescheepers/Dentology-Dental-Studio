@@ -5,8 +5,8 @@ import { deleteReceptionist, createReceptionist, updateReceptionist, getReceptio
 import { ReceptionistPage } from './pages/ReceptionistPage'
 import { DoctorPage } from './pages/DoctorPage'
 import PatientPage from './pages/PatientPage';
-import LoginForm from './pages/LoginForm';
 import SideNav from './components/SideNav';
+import LoginPage from './pages/LoginPage';
 
 // import { useEffect } from 'react';
 // import { createReceptionist, deleteReceptionist, updateReceptionist, getReceptionists } from './http/receptionist';
@@ -23,6 +23,7 @@ function App() {
       <BrowserRouter>
         <SideNav />
         <Routes>
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/reception" element={<ReceptionistPage />} />
           <Route path="/dentists" element={<DoctorPage />} />
           <Route path="/patients" element={<PatientPage />} />
