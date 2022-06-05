@@ -23,7 +23,6 @@ function App() {
       <BrowserRouter>
         <SideNav />
         <Routes>
-          {/* <Route path="login" element={<LoginForm />} /> */}
           <Route path="/reception" element={<ReceptionistPage />} />
           <Route path="/dentists" element={<DoctorPage />} />
           <Route path="/patients" element={<PatientPage />} />
