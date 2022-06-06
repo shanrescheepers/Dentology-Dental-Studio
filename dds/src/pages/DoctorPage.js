@@ -7,7 +7,6 @@ import SideNav from '../components/SideNav';
 export function DoctorPage() {
     return (
         <section>
-            <SideNav />
             <div className='doctor-page-main-dash'>
 
                 <div className='add-doctor-panel'>
