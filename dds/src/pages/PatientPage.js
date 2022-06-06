@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Card, Button, ListGroup, ListGroupItem, Form } from 'react-bootstrap';
+import { Card, Button, ListGroup, ListGroupItem, Form, Row, Col } from 'react-bootstrap';
 import '../css/patientPage.css';
 import { createPatient } from '../http/patient';
 

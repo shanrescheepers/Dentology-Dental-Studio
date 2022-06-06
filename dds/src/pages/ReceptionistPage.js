@@ -1,7 +1,7 @@
 import '../css/ReceptionistPage.css';
 import axios from 'axios';
 import { React } from 'react';
-import { Col, Form, Table, Button } from 'react-bootstrap';
+import { Col, Row, Form, Table, Button } from 'react-bootstrap';
 import Calendar from '../components/CalendarComponent';
 import Toggle from '../components/CustomToggleDropdown';
 import Time from '../components/Time';
@@ -30,24 +30,36 @@ export function ReceptionistPage() {
                         {/* <>
     <Toggle />
 </> */}
-                        <Form>
-                            <Form.Control type="name" placeholder="Patient Name" className='patient-name-input' />
-                            <br />
-                            <Form.Control type="surname" placeholder="Patient Surname" className='patient-surname-input' />
-                            <br />
-                            <Form.Control type="text" placeholder="Medical Aid Nr" className='ma-input' />
-                            <Form.Control type="date" className='date'></Form.Control>
+                        <Form className='new-aptt'>
+                            <Col className='add-apt-inner'>
+                                <Row>
+                                    <Form.Select type="name" placeholder="Patient Name" className='patient-dropdown' >
+                                        <option>Select Patient</option>
+                                        <option>Dr. Rox Clarke</option>
+                                        <option>Dr. Nicole Morgan</option>
+                                        <option>Dr. Leja Scheepers</option>
+                                    </Form.Select>
+                                </Row>
+                                <Row>
+                                    <Form.Control type="date" className='date'></Form.Control>
+                                </Row>
+                            </Col>
 
-                            <Form.Select className='doctor-dropdown'>
-                                <option>Select Doctor</option>
-                                <option>Dr. Rox Clarke</option>
-                                <option>Dr. Nicole Morgan</option>
-                                <option>Dr. Leja Scheepers</option>
-                            </Form.Select>
-                            <div className='time-input'>
-                                <Time />
-                            </div>
-                            <br></br>
+                            <Col>
+                                <Row>
+                                    <Form.Select className='doctor-dropdown'>
+                                        <option>Select Doctor</option>
+                                        <option>Dr. Rox Clarke</option>
+                                        <option>Dr. Nicole Morgan</option>
+                                        <option>Dr. Leja Scheepers</option>
+                                    </Form.Select>
+                                </Row>
+                                <Row>
+                                    <div className='time-input'>
+                                        <Time />
+                                    </div>
+                                </Row>
+                            </Col>
                             <Button variant="primary" type="submit" className='add-new-appointment'>
                                 add appointment
                             </Button>
@@ -118,10 +130,8 @@ export function ReceptionistPage() {
                         <div class="table-wrapper">
                             <div class="table-title">
                                 <div class="row">
-                                    <div class="col-sm-8"><h2>Scheduled Patients <b>For Today</b></h2></div>
-                                    <div class="col-sm-4">
-
-                                    </div>
+                                    <div class="col-sm-8"><span className='scheduled'><h2>SCHEDULED PATIENTS<b>FOR TODAY</b></h2></span></div>
+                                    <hr className='scheduled-hr'></hr>
                                 </div>
                             </div>
                             <table class="table table-bordered">
@@ -199,6 +209,20 @@ export function ReceptionistPage() {
                                         <td className='phone'>0824992982 </td>
                                         <td className='time'>11:15</td>
                                         <td className='reason'>Denture & Root Canal</td>
+                                        <td>
+                                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                            <i ><a class="edit" title="edit" className='edit'></a></i>
+                                            <i ><a class="delete" title="Delete" className='delete'></a></i>
+                                            <i ><a class="approved" title="approved" className='approved'></a></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className='patient-name'>Megan</td>
+                                        <td className='patient-surname'>Viljoen</td>
+                                        <td className='doctor-name'>Dr. Nicole Morgan</td>
+                                        <td className='phone'>0824496706 </td>
+                                        <td className='time'>12:15</td>
+                                        <td className='reason'>Root Canal</td>
                                         <td>
                                             <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                             <i ><a class="edit" title="edit" className='edit'></a></i>

@@ -30,7 +30,6 @@ export function SideNav() {
                 </Link>
             </div>
         </div >
-
     )
 }
 export default SideNav;
