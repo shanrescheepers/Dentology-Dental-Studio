@@ -214,9 +214,7 @@ export function PatientPage() {
                             </Col>
                         </Row>
                         {/* EMAIL */}
-                        <Row>
-                            <Form.Control value={patient.email || ""} onChange={handleChange} name="email" type="email" placeholder="Patient Email" className='p-email-input' />
-                        </Row>
+
 
                         <Row>
                             {/* MEDICAL AID NUMBER & PASSWORD ROW DISPLAY*/}
@@ -249,7 +247,9 @@ export function PatientPage() {
                                 <option value={patient.genderId || ""} onChange={handleChange} name="genderId" type="text" placeholder="Patient Gender">Male</option>
                             </Form.Select>
                         </Col>
-
+                        <Row>
+                            <Form.Control value={patient.email || ""} onChange={handleChange} name="email" type="email" placeholder="Patient Email" className='p-email-input' />
+                        </Row>
                         <Row>
                             <Col>
                                 <Button variant="primary" type="submit" className='add-new-patient'>

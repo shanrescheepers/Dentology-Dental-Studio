@@ -30,6 +30,7 @@
     border-radius: 10px;
     box-shadow: rgba(254, 254, 254, 0.792) 0px 4px 12px;
     margin-left: 6px;
+    font-size: 11px;
     /* display: flex;
     flex-direction: column 1fr 1fr;
     justify-content:baseline; */
@@ -37,40 +38,70 @@
 .form-inputs{
     margin-right: -76px;
     padding-top: 20px;
-}
-.p-name-input, .p-surname-input, .aid-input, .p-pass, .p-age, .p-number-input{
-    height: 25px;
-    text-align:start;
     font-size: 11px;
-    padding-left: 7px;
-    letter-spacing: 0.2px;
-    width: 126px !important;
-
 }
-/* PATIENT EMAIL */
-.p-email-input{
-    width: 320px !important;
+.p-name-input{
     height: 25px;
     text-align:start;
     font-size: 11px;
     padding-left: 10px;
     letter-spacing: 0.2px;
+}
+
+.p-number-input{
+ 
+    font-size: 11px;
+       margin-right: 35px;
+}
+
+.p-pass{
+    font-size: 11px;
+    margin-right:21px;
+}
+.p-age{
+    text-align:start;
+    font-size: 11px;
+    margin-left: -20px;
+    padding-left: 10px;
+}
+.aid-input{
+    text-align:start;
+    font-size: 11px;
+    margin-right: 60px;
+    padding-left: -10px;
+}
+.p-surname-input{
+    text-align:start;
+    font-size: 11px;
+    margin-right: 7px;
+    padding-left: 10px;
+}
+/* PATIENT EMAIL */
+.p-email-input{
+    margin-top: 6px;
+    height: 25px;
+    text-align:start;
+    font-size: 11px;
+    padding-left: 10px;
+    letter-spacing: 0.2px;
+    float: left;
+    margin-left: 90px;
 }
 
 /* PATIENT GENDER */
 .p-gender{
     border-radius: 20px;
     border: none;
-    width: 135px !important;
+    width: 100px !important;
     color: #7f7f7f;
-    margin-top: 20px;
-    height: 25px;
+    margin-top: 21px;
+    height: 23px;
     text-align:start;
     font-size: 11px;
     padding-left: 10px;
-    float:left;
+
     letter-spacing: 0.2px;
-    margin-left: -12px;
+    margin-left: 150px;
 }
 
 /* SUBMIT NEW PATIENT BUTTON */
@@ -78,14 +109,12 @@
     font-family: 'Nanum Gothic', sans-serif;
     margin-top: 55px;
     background-color: #ffffff;
-    border: 2px solid #313132ba;
-    
+    border: 2px solid #313132ba !important;
     cursor: pointer;
     width: 100px;
-    height: 30px;
+    height: 35px !important;
     padding: 2px;
-    margin-left: 75px;
-    float: left;
+margin-right: 30px;
 }
 .add-new-patient:hover{
     font-family: 'Nanum Gothic', sans-serif;
