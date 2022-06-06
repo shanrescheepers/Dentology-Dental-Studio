@@ -19,8 +19,8 @@ function App() {
   // }, [])
 
   return (
-    <div className="App">
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className='app-view'>
         <SideNav />
         <Routes>
           <Route path="/login" element={<LoginPage />} />
@@ -28,8 +28,8 @@ function App() {
           <Route path="/dentists" element={<DoctorPage />} />
           <Route path="/patients" element={<PatientPage />} />
         </Routes>
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
