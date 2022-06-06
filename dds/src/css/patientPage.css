@@ -1,212 +1,265 @@
+
+
 .patient-page-main-dash{
-    width: 99vw;
-    height: 99vh;
-    overflow-y: hidden;
+    padding: 0px;
+    margin: 0px;
 }
-.add-patient-h2, h2{
-    margin-top: 50px;
-    margin-bottom: -20px;
-    margin-left: -90px;
-}
-.patients, .patient-profiles{
-    display: block;
 
+.h1-hr{
+    width: 350px;
+    margin-top: -10px;
 }
+.second-row{
+    display: grid;
+    grid: 1fr 1fr 1fr;
+    grid-row: auto;
+}
+.existing-patients-h1{
+    margin-left: -570px;
+    padding-top: 30px;
+    padding-right: 100px;
+    height: 50px;
+}
+
 .add-patient-form{
-    background-color: #d9d4e7;
+    background-color: #6335e362;
+    height: 250px;
+    width: 305px;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(254, 254, 254, 0.792) 0px 4px 12px;
+    margin-left: 6px;
+    /* display: flex;
+    flex-direction: column 1fr 1fr;
+    justify-content:baseline; */
+}   
+.form-inputs{
+    margin-right: -76px;
+    padding-top: 20px;
 }
-.p-name-input{
-    float: left;
-    margin-left: 40px;
-}
-.p-surname-input{
-    float: left;
-    margin-left: 200px;
-    margin-top: -21px;
-}
+.p-name-input, .p-surname-input, .aid-input, .p-pass, .p-age, .p-number-input{
+    height: 25px;
+    text-align:start;
+    font-size: 11px;
+    padding-left: 7px;
+    letter-spacing: 0.2px;
+    width: 126px !important;
 
-.aid-input{
-    float: left;
-    margin-left: 40px;
 }
-
+/* PATIENT EMAIL */
 .p-email-input{
-    float: left;
-    margin-left: 200px;
-    margin-top: -21px;
+    width: 320px !important;
+    height: 25px;
+    text-align:start;
+    font-size: 11px;
+    padding-left: 10px;
+    letter-spacing: 0.2px;
 }
 
-.p-pass{
-    float: left;
-    margin-left: 40px;
-}
-.p-age{
-    float: left;
-    margin-left: 200px;
-    margin-top: -21px;
-}
-
+/* PATIENT GENDER */
 .p-gender{
-    float: left;
-    margin-left: 40px;
+    border-radius: 20px;
+    border: none;
+    width: 135px !important;
+    color: #7f7f7f;
+    margin-top: 20px;
+    height: 25px;
+    text-align:start;
+    font-size: 11px;
+    padding-left: 10px;
+    float:left;
+    letter-spacing: 0.2px;
+    margin-left: -12px;
 }
-.p-number-input{
-    float: left;
-    margin-left: 200px;
-    margin-top: -21px;
-}
+
+/* SUBMIT NEW PATIENT BUTTON */
 .add-new-patient{
-    float: right;
+    font-family: 'Nanum Gothic', sans-serif;
+    margin-top: 55px;
     background-color: #ffffff;
-    border: 2px solid #9b7ded;
+    border: 2px solid #313132ba;
+    
     cursor: pointer;
-    margin-right: 60px;
+    width: 100px;
+    height: 30px;
+    padding: 2px;
+    margin-left: 75px;
+    float: left;
+}
+.add-new-patient:hover{
+    font-family: 'Nanum Gothic', sans-serif;
+    margin-top: 55px;
+    background-color: #ffffffdd;
+    border: 3px solid #FF707F;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    padding: 2px;
+    margin-left: 75px;
+    float: left;
 }
 .pp{
-    margin-left: -20px;
+    margin-left: 0px !important;
     padding-top: 20px;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
+    text-align: center;
 }
 .add-patient-h2{
-    margin-left: 60px;
+    margin-left: 13px;
+    margin-bottom: -10px;
 }
-h1{
+.register-new-patient{
+    text-align: left;
+    padding-top: 20px;
+    margin-left: 10px;
+    padding-right: 20px;
+}
+.plus{
+    font-size: 33px;
+}
 
-margin-right: 550px;
-    margin-top: 50px;
-    margin-bottom: -20px;
-}
 .medaid{
-    text-align: center;
-font-family: 'Nanum Gothic', sans-serif !important;
-margin-top: 10px;
-margin-left: -5px;
+    text-align: center !important;
+    font-family: 'Nanum Gothic', sans-serif !important;
+    margin-left: 0px;
 }
-.p1{
-    display: block;
-}
+
 .pfp1{
     background-image: url(../assets/images/female1.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 90px;
-    width: 90px;
+    height: 60px;
+    width: 60px;
     border-radius: 50px;
     text-align: center;
-    margin-left: 50px;
-    margin-top: 5px;
+    margin-left: 33%;
+    margin-top: 10px;
+
 }
+
 
 .pfp2{
     background-image: url(../assets/images/male1.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 90px;
-    width: 90px;
+    height: 60px;
+    width: 60px;
     border-radius: 50px;
     text-align: center;
-    margin-left: 50px;
-    margin-top: 5px;
+    margin-left: 33%;
+    margin-top: 10px;
 }
 .pfp3{
     background-image: url(../assets/images/female5.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 90px;
-    width: 90px;
+    height: 60px;
+    width: 60px;
     border-radius: 50px;
     text-align: center;
-    margin-left: 50px;
-    margin-top: 5px;
+    margin-left: 33%;
+    margin-top: 10px;
 }
 .pfp4{
     background-image: url(../assets/images/male2.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 90px;
-    width: 90px;
+    height: 60px;
+    width: 60px;
     border-radius: 50px;
     text-align: center;
-    margin-left: 50px;
-    margin-top: 5px;
+    margin-left: 33%;
+    margin-top: 10px;
 }
 .pfp5{
     background-image: url(../assets/images/female6.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 90px;
-    width: 90px;
+    height: 60px;
+    width: 60px;
     border-radius: 50px;
     text-align: center;
-    margin-left: 50px;
-    margin-top: 5px;
+    margin-left: 33%;
+    margin-top: 10px;
 }
+
 .pfp6{
     background-image: url(../assets/images/female7.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 90px;
-    width: 90px;
+    height: 60px;
+    width: 60px;
     border-radius: 50px;
     text-align: center;
-    margin-left: 40px;
-    margin-top: 5px;
+    margin-left: 33%;
+    margin-top: 10px;
 }
+
 .add-patient-panel{
     background-color: #d9d4e7;
-    height: 100vh;
-    width: 28%;
+    background-image: url('https://assets6.lottiefiles.com/packages/lf20_FosbJp.json');
     float: right;
-
-    margin-top: -54%;
+    height: 100vh;
+    margin-top: -80px !important;
+    overflow: hidden;
+    width: 360px;
 }
 
-/* shanre */
-.p1{
+.patient-profiles{
+    height: 530px;
+    width: 810px;
+    margin-top:60px;
+    margin-left: 200px;
+    border: 3px solid #76757513;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+    overflow: scroll !important;
+    scroll-behavior: smooth;
+    scrollbar-color:rgb(218, 76, 100);
+    scrollbar-width: 20px;
+    /* display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 50px;
+
+    row-gap: 20px; */
+}
+
+.cards{
+    text-align: center;
+    margin-left: -150px;
+    width: 140px !important;
+    height: 210px !important;
+    text-align: center !important;
+}
+
+
+.card-grid{
+    overflow: scroll visible !important;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    row-gap: 20px;
     float: left;
-    margin-left: 170px;
-    height: 100px;
-    max-height: 270px;
-    max-width: 200px;
 }
-/* jakbus */
-.p2{
-    float: left;
-  margin-left: 120px;
-  max-width: 200px;
-  max-height: 270px;
-}
-/* muneeba */
-.p3{
-    float: left;
-  margin-left: 120px;
-  max-width: 200px;
-  max-height: 270px;
-}
-/* emil */
-.p4{
-margin-left: -10px;
-margin-top: 160px;
-float: left;
-max-width: 200px;
-max-height: 270px;
-}
-/* tersia */
-.p5{
-    float: left;
-    margin-top: 160px;
-  margin-left:-240px;
-  max-width: 200px;
-  max-height: 270px;
-}
-/* megan */
-.p6{
-    float: left;
-    margin-top: 160px;
-    margin-left:-480px;
-    max-width: 200px;
-    max-height: 270px;
-}
+
 .list-group-flush{
-    margin-top: -10px;
+    margin-top: -5px;
+    text-align: center !important;
+    padding: 5px;
+}
+
+/* CRUD CARDS CREATE */
+.patient-card-profile-picture{
+    background-image: url(../assets/images/img-holder.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60px;
+    width: 60px;
+    border-radius: 50px;
+    text-align: center;
+    margin-left: 33%;
+    margin-top: 10px; 
 }
