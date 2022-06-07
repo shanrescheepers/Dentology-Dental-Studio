@@ -1,8 +1,7 @@
 import axios from 'axios';
 
-export function getReceptionists() {
-
-    return axios.get('http://localhost:8888/ddsapi/index.php')
+export function getPatients() {
+    return axios.get('http://localhost:8888/ddsapi/getPatient.php')
         .then(data => data)
 }
 
@@ -18,6 +17,19 @@ export function createPatient(patient) {
         email: patient.email,
         password: patient.password,
         medAidNum: patient.medAidNum
+    }, {
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "*",
+            "Access-Control-Allow-Methods": "*",
+        }
+    }).then(data => data)
+}
+
+export function deletePatient(patientId) {
+    return axios.post('http://localhost:8888/ddsapi/deletePatient.php', {
+        // Wrapping - JSONd data wat gestuur word.
+        patientId: patientId,
     }, {
         headers: {
             "Access-Control-Allow-Origin": "*",
