@@ -8,3 +8,13 @@
     grid-template-rows: auto;
     height: 100vh;
 }
+
+.patient-view {
+    margin: 0 32px 0 32px;
+}
+
+.patients-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 16px;
+}

@@ -1,4 +1,3 @@
-import '../css/ReceptionistPage.css';
 import axios from 'axios';
 import { React } from 'react';
 import { Col, Row, Form, Table, Button } from 'react-bootstrap';

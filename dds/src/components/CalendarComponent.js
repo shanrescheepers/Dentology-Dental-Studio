@@ -1,4 +1,3 @@
-import '../css/calendarcomponent.css';
 
 export function Calendar() {
 

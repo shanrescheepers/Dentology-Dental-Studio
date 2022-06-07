@@ -1,5 +1,4 @@
 
-import '../css/time.css';
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 

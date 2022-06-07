@@ -7,6 +7,7 @@ import { DoctorPage } from './pages/DoctorPage'
 import PatientPage from './pages/PatientPage';
 import SideNav from './components/SideNav';
 import LoginPage from './pages/LoginPage';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // import { useEffect } from 'react';
 // import { createReceptionist, deleteReceptionist, updateReceptionist, getReceptionists } from './http/receptionist';
