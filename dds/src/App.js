@@ -23,12 +23,14 @@ function App() {
     <BrowserRouter>
       <div className='app-view'>
         <SideNav />
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/reception" element={<ReceptionistPage />} />
-          <Route path="/dentists" element={<DoctorPage />} />
-          <Route path="/patients" element={<PatientPage />} />
-        </Routes>
+        <div className="main">
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/reception" element={<ReceptionistPage />} />
+            <Route path="/dentists" element={<DoctorPage />} />
+            <Route path="/patients" element={<PatientPage />} />
+          </Routes>
+        </div>
       </div>
     </BrowserRouter>
   );
