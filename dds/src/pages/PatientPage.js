@@ -41,6 +41,7 @@ export function PatientPage() {
                 setPatients(response.data);
             })
         })
+
     }
     //integrity constraint// 
     // op patient table en al die ander tables, gaan daar active kolomme moet wees. set activee na true/falase nie. Jy delete noit data nie en in die geval van n med prac, as n ander dr data sou nodig he vir dinge. POPI act?? fok dit obvs. History van past en present patients with ids. Dead and or alive
@@ -93,21 +94,22 @@ export function PatientPage() {
             </div>
             <div className='add-patient'>
                 <h3 className='plus-title'>+Patient</h3>
+                <span className='plus-patient-span'>Add a new patient to DDS</span>
                 <form className='form-grid' onSubmit={handleSubmit}>
-                    <input onChange={handleChange} name='name' type='text' placeholder="Patient Name" />
-                    <input onChange={handleChange} name='surname' type='text' placeholder="Patient Surname" />
-                    <input onChange={handleChange} name='age' type='text' placeholder="Patient Age" />
-                    <select defaultValue={"DEFAULT"} onChange={handleChange} name='genderId' type='text'>
-                        <option value="DEFAULT" disabled>Gender</option>
+                    <input onChange={handleChange} name='name' type='text' placeholder="Patient Name" className='patient-form-inputs' />
+                    <input onChange={handleChange} name='surname' type='text' placeholder="Patient Surname" className='patient-form-inputs' />
+                    <input onChange={handleChange} name='age' type='text' placeholder="Patient Age" className='patient-form-inputs' />
+                    <select defaultValue={"DEFAULT"} onChange={handleChange} name='genderId' type='text' className='patient-form-inputs' >
+                        <option value="DEFAULT" disabled >Gender</option>
                         <option value="1">Female</option>
                         <option value="2">Male</option>
                     </select>
-                    <input onChange={handleChange} name='email' type='email' placeholder="Patient Email" />
-                    <input onChange={handleChange} name='password' type='text' placeholder="Patient Password" />
-                    <input onChange={handleChange} name='phone' type='text' placeholder="PHONE NUMBER" />
-                    <input onChange={handleChange} name='medAidNum' type='text' placeholder="Med Aid Number" />
+                    <input onChange={handleChange} name='email' type='email' placeholder="Patient Email" className='patient-form-inputs' />
+                    <input onChange={handleChange} name='password' type='text' placeholder="Patient Password" className='patient-form-inputs' />
+                    <input onChange={handleChange} name='phone' type='text' placeholder="Cell Number" className='patient-form-inputs' />
+                    <input onChange={handleChange} name='medAidNum' type='text' placeholder="Medical Aid Number" className='patient-form-inputs' />
 
-                    <button onClick={handleSubmit} type='submit'>Add</button>
+                    <button onClick={handleSubmit} type='submit' className='patient-form-inputs-add-btn'>Add Patient</button>
                 </form>
             </div>
         </section>
