@@ -1,9 +1,9 @@
 .add-patient {
-    background: linear-gradient(324deg, #c3b2f5 7%, 
-    #f2cff692 50%,#c3b2f5 100%);
+    background: linear-gradient(324deg, #e4ecf6b8 7%, 
+    #f5e4ef93 50%,#e4ecf6aa 100%);
     border-top-left-radius: 20px;
+    border: 1px solid #f0f6ff;
     border-bottom-left-radius: 20px;
-    box-shadow: #41062540 0px 6px 8px -2px, #68067140 0px 3px 5px 1px;
 }
 
 .patient-page {
@@ -20,9 +20,9 @@
 .patients-grid {
     margin-top: 30px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 16px;
-    height: 80vh;
+    height: 82vh;
     align-items: top;
     overflow-y: scroll;
   
@@ -32,11 +32,13 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    height: fit-content;
+    height: 270px;
     place-items: center;
     border-radius: 30px !important;
-    border: 1px solid;
+    border: 1px solid #e8e7e7c6;
     width: 200px;
+    background-color: #fffffff1;
+    box-shadow: rgba(182, 182, 185, 0.127) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.163) 0px 18px 36px -18px inset;
 }
 
 .button-group {
@@ -52,6 +54,7 @@
     width: 80px;
     height: 80px;
     margin: 16px;
+    image-rendering: crisp-edges;
 }
 
 .icon-button {
@@ -72,7 +75,9 @@
 }
 
 .plus-title {
-    margin: 0 8px 0 8px;
+    padding-top: 20px;
+    margin: 0 16px 0 16px;
+    color: #FC7F8B;
 }
 /* apt dents reps self */
 
@@ -82,4 +87,45 @@
 
 .card-text-patients {
     font-size: 10px;
+}
+
+.patient-form-inputs {
+    padding-left: 8px;
+    height: 30px;
+    color: rgb(206, 206, 206);
+    border-radius: 20px;
+    border: 1px solid rgb(205, 204, 204);
+    background-color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+.patient-form-inputs-add-btn{
+    padding: 8px;
+    height: fit-content;
+    justify-content: center;
+    width: fit-content;
+    border-radius: 20px;
+    border: 1px solid rgb(205, 204, 204);
+    background-color: #fff;
+    margin-left: 100px;
+    font-family: 'Roboto', sans-serif;
+}
+.patient-form-inputs-add-btn:hover{
+    padding: 8px;
+    height: fit-content;
+    justify-content: center;
+    width: fit-content;
+    border-radius: 20px;
+    border: 1px solid rgb(205, 204, 204);
+    background-color: rgb(94, 175, 246);
+    margin-left: 100px;
+}
+
+.plus-patient-span {
+    color: #6e6e6e;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    margin: 0 16px 0 16px;
 }

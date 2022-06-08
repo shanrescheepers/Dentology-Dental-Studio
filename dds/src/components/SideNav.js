@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import '../css/sideNav.css';
-import dashIcon from '../assets/images/dash-icon.svg'
-import receptionistIcon from '../assets/images/user-icon.svg'
-import docIcon from '../assets/images/doc-icon.svg'
-import patientIcon from '../assets/images/doctor-icon.svg'
-import signInSignOutIcon from '../assets/images/signin-signout-icon.svg'
+import dashIcon from '../assets/images/home-grey.svg'
+import receptionistIcon from '../assets/images/receptionists-grey.svg'
+import docIcon from '../assets/images/dentist-grey.svg'
+import patientIcon from '../assets/images/patients-grey.svg'
+import signInSignOutIcon from '../assets/images/login-grey.svg'
 
 export function SideNav() {
 
