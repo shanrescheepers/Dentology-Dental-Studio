@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { createPatient, getPatients, deletePatient } from '../http/patient';
 import '../css/patientPage.css';
 import patientProfilePicturePlaceholder from '../assets/images/female1.jpeg';
-import dashIcon from '../assets/images/dash-icon.svg'
-
+import deleteIcon from '../assets/images/dlt-icon.svg'
+import editIcon from '../assets/images/edit-icon.svg'
+import historyIcon from '../assets/images/patient-history-icon.svg'
 
 export function PatientPage() {
 
@@ -72,19 +73,19 @@ export function PatientPage() {
                         // key word terug gestuur na die API toe, die key, verwys na die patient ID se nr. As DELETE gebruik word, is die specification makliker om die 'key idx' te delete.
                         <div key={data.patientId} className='patient-card'>
                             <img src={patientProfilePicturePlaceholder} alt="patient profile" className='patient-profile-picture' />
-                            <h6>{data.name} {data.surname}</h6>
-                            <span>{data.medAidNum}</span>
-                            <span>{getGender(data.genderId)}</span>
-                            <span>{data.age}</span>
-                            <span>{data.phone}</span>
-                            <span>{data.email}</span>
-                            <span>{data.patientId}</span>
+                            <h6 className='h6-patients'>{data.name} {data.surname}</h6>
+                            <span className='card-text-patients'>{data.medAidNum}</span>
+                            <span className='card-text-patients'>{getGender(data.genderId)}</span>
+                            <span className='card-text-patients'>{data.age}</span>
+                            <span className='card-text-patients'>{data.phone}</span>
+                            <span className='card-text-patients'>{data.email}</span>
+                            <span className='card-text-patients'>{data.patientId}</span>
                             <div className='button-group'>
-                                <img className='icon-button' src={dashIcon} alt="icon" />
+                                <img className='icon-button' src={editIcon} alt="icon" />
                                 {/* Dis hoe ons onclick gebruik in react. React render die apge on load dit trigger die gewone manier van onClick (onClick="method()") */}
                                 {/* https://stackoverflow.com/questions/33846682/react-onclick-function-fires-on-render */}
-                                <img className='icon-button' onClick={() => deleteChosenPatient(data.patientId)} src={dashIcon} alt="dlt-icon" />
-                                <img className='icon-button' src={dashIcon} alt="icon" />
+                                <img className='icon-button' onClick={() => deleteChosenPatient(data.patientId)} src={deleteIcon} alt="dlt-icon" />
+                                <img className='icon-button' src={historyIcon} alt="icon" />
                             </div>
                         </div>
                     ))}
@@ -102,7 +103,7 @@ export function PatientPage() {
                         <option value="2">Male</option>
                     </select>
                     <input onChange={handleChange} name='email' type='email' placeholder="Patient Email" />
-                    <input onChange={handleChange} name='password' type='text' placeholder="Patient Password ???" />
+                    <input onChange={handleChange} name='password' type='text' placeholder="Patient Password" />
                     <input onChange={handleChange} name='phone' type='text' placeholder="PHONE NUMBER" />
                     <input onChange={handleChange} name='medAidNum' type='text' placeholder="Med Aid Number" />
 

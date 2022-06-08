@@ -1,5 +1,9 @@
 .add-patient {
-    background-color: aqua;
+    background: linear-gradient(324deg, #c3b2f5 7%, 
+    #f2cff692 50%,#c3b2f5 100%);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    box-shadow: #41062540 0px 6px 8px -2px, #68067140 0px 3px 5px 1px;
 }
 
 .patient-page {
@@ -32,13 +36,14 @@
     place-items: center;
     border-radius: 30px !important;
     border: 1px solid;
+    width: 200px;
 }
 
 .button-group {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
-    grid-gap: 32px;
+    grid-gap: 24px;
     padding: 16px;
 }
 
@@ -51,6 +56,7 @@
 
 .icon-button {
     cursor: pointer;
+    height: 15px;
 }
 
 .title {
@@ -69,3 +75,11 @@
     margin: 0 8px 0 8px;
 }
 /* apt dents reps self */
+
+.h6-patients {
+    font-size: 14px;
+}
+
+.card-text-patients {
+    font-size: 10px;
+}
