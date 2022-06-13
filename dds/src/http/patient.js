@@ -4,7 +4,7 @@ export function getPatients() {
     return axios.get('http://localhost:8888/ddsapi/getPatient.php')
         .then(data => data)
 }
-
+// CREATE
 export function createPatient(patient) {
     console.log(patient);
     return axios.post('http://localhost:8888/ddsapi/createPatient.php', {
@@ -25,7 +25,7 @@ export function createPatient(patient) {
         }
     }).then(data => data)
 }
-
+// DELETE
 export function deletePatient(patientId) {
     return axios.post('http://localhost:8888/ddsapi/deletePatient.php', {
         // Wrapping - JSONd data wat gestuur word.

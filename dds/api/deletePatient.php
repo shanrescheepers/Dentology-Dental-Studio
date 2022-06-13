@@ -21,9 +21,9 @@
     $stmt->bindParam(':patientId', $patient->patientId);
 
     if($stmt->execute()) {
-        $response = ['status' => 1, 'message' => 'Doctor deleted successfully.'];
+        $response = ['status' => 1, 'message' => 'Patient deleted from DDS successfully.'];
     } else {
-        $response = ['status' => 0, 'message' => 'Failed to delete doctor, try again.'];
+        $response = ['status' => 0, 'message' => 'Failed to delete patient, try again.'];
     }
     echo json_encode($response);
 ?>
