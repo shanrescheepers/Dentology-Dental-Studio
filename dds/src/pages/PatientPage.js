@@ -212,6 +212,8 @@ export function PatientPage() {
             createPatient(patient).then(() => {
                 alert("Patient created!");
 
+                // Refer asb na doctor se set state wat geclear word na submit
+                setPatient({});
                 getPatients().then(response => {
                     setPatients(response.data);
                 })
