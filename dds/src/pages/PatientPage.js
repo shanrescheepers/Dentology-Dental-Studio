@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { createPatient, getPatients, deletePatient } from '../http/patient';
+import { Modal, Button } from 'react-bootstrap';
 import '../css/patientPage.css';
 import patientProfilePicturePlaceholder from '../assets/images/female1.jpeg';
 import deleteIcon from '../assets/images/dlt-icon.svg'
@@ -8,9 +9,38 @@ import editIcon from '../assets/images/edit-icon.svg'
 import historyIcon from '../assets/images/patient-history-icon.svg'
 
 export function PatientPage() {
+    const [showDelete, setShowDelete] = useState(false);
+    const [showUpdate, setShowUpdate] = useState(false);
 
     const [patient, setPatient] = useState({});
     const [patients, setPatients] = useState([]);
+
+
+    const [patientId, setPatientId] = useState(0);
+    const [updatePatient, setUpdatePatient] = useState({});
+
+    const handleDeleteClose = () => {
+        deleteChosenPatient(patientId);
+        setShowDelete(false);
+    }
+
+    const handleUpdateClose = () => {
+        patient.genderId = parseInt(patient.genderId);
+        patient.medAidNum = parseInt(patient.medAidNum);
+        patient.age = parseInt(patient.age);
+
+        setShowUpdate(false);
+    }
+    // LETTERLIK UIT NAME UIT GEHARDLOOP. patientId oorspronklik clash want dit is al geroep in die state. LOL. so nou is dit maar net 'id'
+    const handleDeleteShow = (id) => {
+        setPatientId(id);
+        setShowDelete(true);
+    };
+
+    const handleUpdateShow = (updatePatientInfo) => {
+        setUpdatePatient(updatePatientInfo);
+        setShowUpdate(true);
+    };
 
     useEffect(() => {
         // hier is patients wat terugkom
@@ -48,18 +78,14 @@ export function PatientPage() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        if (patient.genderId === "Female") {
-            patient.genderId = 1
-        } else {
-            patient.genderId = 2
-        }
+        patient.genderId = parseInt(patient.genderId);
 
         patient.medAidNum = parseInt(patient.medAidNum);
         patient.age = parseInt(patient.age);
 
         createPatient(patient).then(() => {
             getPatients().then(response => {
-                setPatients(response.data).then(x => console.log(x));
+                setPatients(response.data);
             })
         });
     }
@@ -82,10 +108,10 @@ export function PatientPage() {
                             <span className='card-text-patients'>{data.email}</span>
                             <span className='card-text-patients'>{data.patientId}</span>
                             <div className='button-group'>
-                                <img className='icon-button' src={editIcon} alt="icon" />
+                                <img className='icon-button' onClick={() => handleUpdateShow(data)} src={editIcon} alt="icon" />
                                 {/* Dis hoe ons onclick gebruik in react. React render die apge on load dit trigger die gewone manier van onClick (onClick="method()") */}
                                 {/* https://stackoverflow.com/questions/33846682/react-onclick-function-fires-on-render */}
-                                <img className='icon-button' onClick={() => deleteChosenPatient(data.patientId)} src={deleteIcon} alt="dlt-icon" />
+                                <img className='icon-button' onClick={() => handleDeleteShow(data.patientId)} src={deleteIcon} alt="dlt-icon" />
                                 <img className='icon-button' src={historyIcon} alt="icon" />
                             </div>
                         </div>
@@ -105,13 +131,57 @@ export function PatientPage() {
                         <option value="2">Male</option>
                     </select>
                     <input onChange={handleChange} name='email' type='email' placeholder="Patient Email" className='patient-form-inputs' />
-                    <input onChange={handleChange} name='password' type='text' placeholder="Patient Password" className='patient-form-inputs' />
                     <input onChange={handleChange} name='phone' type='text' placeholder="Cell Number" className='patient-form-inputs' />
                     <input onChange={handleChange} name='medAidNum' type='text' placeholder="Medical Aid Number" className='patient-form-inputs' />
 
                     <button onClick={handleSubmit} type='submit' className='patient-form-inputs-add-btn'>Add Patient</button>
                 </form>
             </div>
+
+
+            <Modal show={showDelete} onHide={() => setShowDelete(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Delete Patient?</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Are you sure you would like to delete this patient?</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setShowDelete(false)}>
+                        No
+                    </Button>
+                    <Button variant="primary" onClick={handleDeleteClose}>
+                        Yes
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+            <Modal show={showUpdate} onHide={() => setShowUpdate(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Update {updatePatient.name} {updatePatient.surname}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <form className='form-grid'>
+                        <input defaultValue={updatePatient.name} onChange={handleChange} name='name' type='text' placeholder={"Patient Name"} className='patient-form-inputs' />
+                        <input defaultValue={updatePatient.surname} onChange={handleChange} name='surname' type='text' placeholder="Patient Surname" className='patient-form-inputs' />
+                        <input defaultValue={updatePatient.age} onChange={handleChange} name='age' type='text' placeholder="Patient Age" className='patient-form-inputs' />
+                        <select defaultValue={updatePatient.genderId} onChange={handleChange} name='genderId' type='text' className='patient-form-inputs' >
+                            <option value="DEFAULT" disabled >Gender</option>
+                            <option value="1">Female</option>
+                            <option value="2">Male</option>
+                        </select>
+                        <input defaultValue={updatePatient.email} onChange={handleChange} name='email' type='email' placeholder="Patient Email" className='patient-form-inputs' />
+                        <input defaultValue={updatePatient.phone} onChange={handleChange} name='phone' type='text' placeholder="Cell Number" className='patient-form-inputs' />
+                        <input defaultValue={updatePatient.medAidNum} onChange={handleChange} name='medAidNum' type='text' placeholder="Medical Aid Number" className='patient-form-inputs' />
+                    </form>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setShowUpdate(false)}>
+                        No
+                    </Button>
+                    <Button variant="primary" onClick={handleUpdateClose}>
+                        Yes
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </section>
     );
 };

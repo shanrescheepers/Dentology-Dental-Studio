@@ -28,7 +28,7 @@ medAidNum
     $patient = json_decode( file_get_contents('php://input') );
   
     // set sql statement, this is the action.
-    $sql = "INSERT INTO patient ( name, surname, age, genderId, email, password, profileImage, phone, medAidNum) VALUES( :name, :surname, :age, :genderId, :email, :password, :profileImage, :phone, :medAidNum)";
+    $sql = "INSERT INTO patient ( name, surname, age, genderId, email, password, profileImage, phone, medAidNum, isActive) VALUES( :name, :surname, :age, :genderId, :email, :password, :profileImage, :phone, :medAidNum, :isActive)";
 
     // This connects to my sql
     $stmt = $conn->prepare($sql);
@@ -44,6 +44,7 @@ medAidNum
     $stmt->bindParam(':profileImage', $patient->profileImage);
     $stmt->bindParam(':phone', $patient->phone);
     $stmt->bindParam(':medAidNum', $patient->medAidNum);
+    $stmt->bindParam(':isActive', $patient->isActive);
   
     // Executing above
     if($stmt->execute()) {

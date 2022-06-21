@@ -16,13 +16,8 @@ export function createPatient(patient) {
         phone: patient.phone,
         email: patient.email,
         password: patient.password,
-        medAidNum: patient.medAidNum
-    }, {
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Headers": "*",
-            "Access-Control-Allow-Methods": "*",
-        }
+        medAidNum: patient.medAidNum,
+        isActive: true
     }).then(data => data)
 }
 // DELETE
@@ -30,11 +25,5 @@ export function deletePatient(patientId) {
     return axios.post('http://localhost:8888/ddsapi/deletePatient.php', {
         // Wrapping - JSONd data wat gestuur word.
         patientId: patientId,
-    }, {
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Headers": "*",
-            "Access-Control-Allow-Methods": "*",
-        }
     }).then(data => data)
 }

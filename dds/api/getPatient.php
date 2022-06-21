@@ -9,7 +9,7 @@
   $objDb = new DbConnect;
   $conn = $objDb->connect();
 
-  $sql = "SELECT * FROM patient";  
+  $sql = "SELECT * FROM patient WHERE isActive = true";  
   $stmt = $conn->prepare($sql);
   $stmt->execute();
   $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
