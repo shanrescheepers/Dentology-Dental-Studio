@@ -15,7 +15,7 @@
     // receptionist coming back from our front-end
     // php:// is alles wat inkim, kry al die cintents van dit, basies die json obj
     $doctor = json_decode( file_get_contents('php://input') );
-    $sql = "DELETE FROM doctor WHERE doctorId= :doctorId";
+    $sql = "UPDATE doctor SET isActive = false WHERE doctorId= :doctorId";
 
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':doctorId', $doctor->doctorId);

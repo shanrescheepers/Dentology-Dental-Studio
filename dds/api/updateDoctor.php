@@ -17,7 +17,7 @@
   
     // set sql statement, this is the action - The Action.
     // stuur die PK, saam met die values wat ge-update moet word. dan hy werk op die PK vir main referencing
-    $sql = "UPDATE doctor SET name= :name, surname= :surname, genderId= :genderId, profileImage= :profileImage, age= :age, phone= :phone, email= :email, password= :password, spesId= :spesId WHERE docId= :docId";
+    $sql = "UPDATE doctor SET name= :name, surname= :surname, genderId= :genderId, profileImage= :profileImage, age= :age, phone= :phone, email= :email, spesId= :spesId WHERE docId= :docId";
 
     // This connects to my sql
     $stmt = $conn->prepare($sql);
@@ -32,7 +32,6 @@
     $stmt->bindParam(':age', $doctor->age);
     $stmt->bindParam(':phone', $doctor->phone);
     $stmt->bindParam(':email', $doctor->email);
-    $stmt->bindParam(':password', $doctor->password);
     $stmt->bindParam(':spesId', $appointment->spesId);
     
     // Executing above
