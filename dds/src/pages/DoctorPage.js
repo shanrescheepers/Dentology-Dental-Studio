@@ -255,7 +255,6 @@ export function DoctorPage() {
                             <span className='card-text-doctors'>{data.age}</span>
                             <span className='card-text-doctors'>{data.phone}</span>
                             <span className='card-text-doctors'>{data.email}</span>
-                            <span className='card-text-doctors'>{data.doctorId}</span>
                             <div className='button-group'>
                                 <img className='icon-button' onClick={() => handleUpdateShow(data)} src={editIcon} alt="icon" />
                                 {/* Dis hoe ons onclick gebruik in react. React render die apge on load dit trigger die gewone manier van onClick (onClick="method()") */}

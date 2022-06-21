@@ -15,10 +15,10 @@
     // receptionist coming back from our front-end
     // php:// is alles wat inkim, kry al die cintents van dit, basies die json obj
     $receptionist = json_decode( file_get_contents('php://input') );
-    $sql = "DELETE FROM receptionist WHERE recepId= :id";
+    $sql = "UPDATE receptionist SET isActive = false WHERE recepId= :recepId";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':id', $receptionist->id);
+    $stmt->bindParam(':recepId', $receptionist->recepId);
 
     if($stmt->execute()) {
         $response = ['status' => 1, 'message' => 'Record deleted successfully.'];

@@ -16,7 +16,7 @@
     $receptionist = json_decode( file_get_contents('php://input') );
   
     // set sql statement, this is the action.
-    $sql = "INSERT INTO receptionist (name, surname, age, genderId, phone, email, password, profileImage, rankId) VALUES(:name, :surname, :age, :genderId, :phone, :email, :password, :profileImage, :rankId)";
+    $sql = "INSERT INTO receptionist (name, surname, age, genderId, phone, email, password, profileImage, rankId, isActive) VALUES(:name, :surname, :age, :genderId, :phone, :email, :password, :profileImage, :rankId, :isActive)";
 
     // This connects to my sql
     $stmt = $conn->prepare($sql);
@@ -31,6 +31,7 @@
     $stmt->bindParam(':password', $receptionist->password);
     $stmt->bindParam(':profileImage', $receptionist->profileImage);
     $stmt->bindParam(':rankId', $receptionist->rankId);
+    $stmt->bindParam(':isActive', $receptionist->isActive);
   
     // Executing above
     if($stmt->execute()) {

@@ -17,13 +17,13 @@
   
     // set sql statement, this is the action.
     // stuur die PK, saam met die values wat ge-update moet word. Hy werk op die PK vir main referencing
-    $sql = "UPDATE receptionist SET name= :name, surname= :surname, age= :age, genderId= :genderId, phone= :phone, email= :email, password= :password, profileImage= :profileImage, rankId= :rankId WHERE recepId= :id";
+    $sql = "UPDATE receptionist SET name= :name, surname= :surname, age= :age, genderId= :genderId, phone= :phone, email= :email, password= :password, profileImage= :profileImage, rankId= :rankId WHERE recepId= :recepId";
 
     // This connects to my sql
     $stmt = $conn->prepare($sql);
   
     // Setting values into the variables
-    $stmt->bindParam(':id', $receptionist->id);
+    $stmt->bindParam(':recepId', $receptionist->recepId);
     $stmt->bindParam(':name', $receptionist->name);
     $stmt->bindParam(':surname', $receptionist->surname);
     $stmt->bindParam(':age', $receptionist->age);
@@ -33,6 +33,7 @@
     $stmt->bindParam(':password', $receptionist->password);
     $stmt->bindParam(':profileImage', $receptionist->profileImage);
     $stmt->bindParam(':rankId', $receptionist->rankId);
+
   
     // Executing above
     if($stmt->execute()) {

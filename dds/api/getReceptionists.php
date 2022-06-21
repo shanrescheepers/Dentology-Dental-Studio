@@ -9,7 +9,7 @@
   $objDb = new DbConnect;
   $conn = $objDb->connect();
 
-  $sql = "SELECT * FROM receptionist";  
+  $sql = "SELECT * FROM receptionist WHERE isActive = true";  
   $stmt = $conn->prepare($sql);
   $stmt->execute();
   //   $result = mysqli_query($conn, $sql); Onder doen presies dieselfde

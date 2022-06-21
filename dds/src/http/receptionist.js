@@ -1,16 +1,10 @@
 import axios from 'axios';
 
 export function getReceptionists() {
-
-    return axios.get('http://localhost:8888/ddsapi/index.php')
+    return axios.get('http://localhost:8888/ddsapi/getReceptionists.php')
         .then(data => data)
 }
-
-// get receptionists (http call)
-// Get Set Read Delete - CRUD
-
-// Create Receptionist
-// DTO
+// CREATE
 export function createReceptionist(receptionist) {
     return axios.post('http://localhost:8888/ddsapi/createReceptionist.php', {
         // Wrapping - JSONd data wat gestuur word.
@@ -20,48 +14,31 @@ export function createReceptionist(receptionist) {
         genderId: receptionist.genderId,
         phone: receptionist.phone,
         email: receptionist.email,
+        rankId: receptionist.rankId,
         password: receptionist.password,
-        rankId: receptionist.rankId
-    }, {
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Headers": "*",
-            "Access-Control-Allow-Methods": "*",
-        }
+        isActive: true
     }).then(data => data)
 }
-// UPDATE TEST
+// DELETE
+export function deleteReceptionist(receptionistId) {
+    return axios.post('http://localhost:8888/ddsapi/deleteReceptionist.php', {
+        // Wrapping - JSONd data wat gestuur word.
+        recepId: receptionistId,
+    }).then(data => data)
+}
+
 export function updateReceptionist(receptionist) {
     return axios.post('http://localhost:8888/ddsapi/updateReceptionist.php', {
         // Wrapping - JSONd data wat gestuur word.
-        id: receptionist.id,
+        recepId: receptionist.recepId,
         name: receptionist.name,
         surname: receptionist.surname,
         age: receptionist.age,
         genderId: receptionist.genderId,
         phone: receptionist.phone,
         email: receptionist.email,
+        rankId: receptionist.rankId,
         password: receptionist.password,
-        rankId: receptionist.rankId
-    }, {
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Headers": "*",
-            "Access-Control-Allow-Methods": "*",
-        }
-    }).then(data => data)
-}
-
-export function deleteReceptionist(receptionistId) {
-    return axios.post('http://localhost:8888/ddsapi/deleteReceptionist.php', {
-        // Wrapping - JSONd data wat gestuur word.
-        id: receptionistId,
-
-    }, {
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Headers": "*",
-            "Access-Control-Allow-Methods": "*",
-        }
+        isActive: true
     }).then(data => data)
 }
