@@ -35,16 +35,18 @@ export function PatientPage() {
         patient.age = parseInt(patient.age);
         patient.patientId = parseInt(patient.patientId);
 
-        updatePatient(updatePatientData).then(() => {
-            // kry nuwe patients van server af nadat patient geupdate is
-            getPatients().then(response => {
-                setPatients(response.data);
-            });
+        if (validateUpdateForm()) {
+            updatePatient(updatePatientData).then(() => {
+                // kry nuwe patients van server af nadat patient geupdate is
+                getPatients().then(response => {
+                    setPatients(response.data);
+                });
 
-            alert('Patient updated!');
-        })
+                alert('Patient updated!');
+            })
 
-        setShowUpdate(false);
+            setShowUpdate(false);
+        }
     }
     // LETTERLIK UIT NAME UIT GEHARDLOOP. patientId oorspronklik clash want dit is al geroep in die state. LOL. so nou is dit maar net 'id'
     const handleDeleteShow = (id) => {
@@ -56,6 +58,117 @@ export function PatientPage() {
         setUpdatePatientData(updatePatientInfo);
         setShowUpdate(true);
     };
+
+    const validateAddForm = () => {
+        var regPhone = /^\d{10}$/;
+        var regAge = /^\d{1,}$/;
+        var regEmail = /^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/g;
+
+        if (patient.name === "" || patient.name === undefined) {
+            alert("Name cannot be empty");
+            return false;
+        }
+
+        if (patient.surname === "" || patient.surname === undefined) {
+            alert("Surname cannot be empty");
+            return false;
+        }
+
+        if (patient.phone === "" || patient.phone === undefined) {
+            alert("Phone cannot be empty");
+            return false;
+        }
+
+        if (!regPhone.test(patient.phone)) {
+            alert("Invalid phone number");
+            return false;
+        }
+
+        if (patient.age === "" || patient.age === undefined) {
+            alert("Age cannot be empty");
+            return false;
+        }
+
+        if (!regAge.test(patient.age)) {
+            alert("Invalid age");
+            return false;
+        }
+
+        if (patient.genderId !== 1 && patient.genderId !== 2) {
+            alert("Gender cannot be empty");
+            return false;
+        }
+
+        if (patient.medAidNum === "" || patient.medAidNum === undefined) {
+            alert("Medical Aid Number cannot be empty");
+            return false;
+        }
+
+        if (patient.email === "" || patient.email === undefined) {
+            alert("Email cannot be empty");
+            return false;
+        }
+
+        if (!regEmail.test(patient.email)) {
+            alert("Invalid email");
+            return false;
+        }
+
+        return true;
+    }
+
+    const validateUpdateForm = () => {
+        var regPhone = /^\d{10}$/;
+        var regAge = /^\d{1,}$/;
+        var regEmail = /^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/g;
+
+        if (updatePatientData.name === "" || updatePatientData.name === undefined) {
+            alert("Name cannot be empty");
+            return false;
+        }
+
+        if (updatePatientData.surname === "" || updatePatientData.surname === undefined) {
+            alert("Surname cannot be empty");
+            return false;
+        }
+
+        if (updatePatientData.phone === "" || updatePatientData.phone === undefined) {
+            alert("Phone cannot be empty");
+            return false;
+        }
+
+        if (!regPhone.test(updatePatientData.phone)) {
+            alert("Invalid phone number");
+            return false;
+        }
+
+        if (updatePatientData.age === "" || updatePatientData.age === undefined) {
+            alert("Age cannot be empty");
+            return false;
+        }
+
+        if (!regAge.test(updatePatientData.age)) {
+            alert("Invalid age");
+            return false;
+        }
+
+        if (updatePatientData.medAidNum === "" || updatePatientData.medAidNum === undefined) {
+            alert("Medical Aid Number cannot be empty");
+            return false;
+        }
+
+        if (updatePatientData.email === "" || updatePatientData.email === undefined) {
+            alert("Email cannot be empty");
+            return false;
+        }
+
+        if (!regEmail.test(updatePatientData.email)) {
+            alert("Invalid email");
+            return false;
+        }
+
+        return true;
+    }
 
     useEffect(() => {
         // hier is patients wat terugkom
@@ -95,11 +208,24 @@ export function PatientPage() {
         patient.medAidNum = parseInt(patient.medAidNum);
         patient.age = parseInt(patient.age);
 
-        createPatient(patient).then(() => {
-            getPatients().then(response => {
-                setPatients(response.data);
-            })
-        });
+        if (validateAddForm()) {
+            createPatient(patient).then(() => {
+                alert("Patient created!");
+
+                getPatients().then(response => {
+                    setPatients(response.data);
+                })
+            });
+            // Moet eers patient create voor waardes weg gevat word
+            document.forms.addPatientForm.name.value = '';
+            document.forms.addPatientForm.surname.value = '';
+            document.forms.addPatientForm.phone.value = '';
+            document.forms.addPatientForm.email.value = '';
+            document.forms.addPatientForm.medAidNum.value = '';
+            document.forms.addPatientForm.genderId.value = 'DEFAULT';
+            document.forms.addPatientForm.age.value = '';
+
+        }
     }
 
 
@@ -133,7 +259,7 @@ export function PatientPage() {
             <div className='add-patient'>
                 <h3 className='plus-title'>+Patient</h3>
                 <span className='plus-patient-span'>Add a new patient to DDS</span>
-                <form className='form-grid' onSubmit={handleSubmit}>
+                <form name='addPatientForm' className='form-grid' onSubmit={handleSubmit}>
                     <input onChange={handleChange} name='name' type='text' placeholder="Patient Name" className='patient-form-inputs' />
                     <input onChange={handleChange} name='surname' type='text' placeholder="Patient Surname" className='patient-form-inputs' />
                     <input onChange={handleChange} name='age' type='text' placeholder="Patient Age" className='patient-form-inputs' />
