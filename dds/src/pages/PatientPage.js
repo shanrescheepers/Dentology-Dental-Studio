@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { createPatient, getPatients, deletePatient } from '../http/patient';
+import { createPatient, getPatients, deletePatient, updatePatient } from '../http/patient';
 import { Modal, Button } from 'react-bootstrap';
 import '../css/patientPage.css';
 import patientProfilePicturePlaceholder from '../assets/images/female1.jpeg';
@@ -17,17 +17,32 @@ export function PatientPage() {
 
 
     const [patientId, setPatientId] = useState(0);
-    const [updatePatient, setUpdatePatient] = useState({});
+    const [updatePatientData, setUpdatePatientData] = useState({});
 
     const handleDeleteClose = () => {
-        deleteChosenPatient(patientId);
-        setShowDelete(false);
+        deletePatient(patientId).then(() => {
+            getPatients().then(response => {
+                setPatients(response.data);
+                setShowDelete(false);
+                alert('Patient deleted!');
+            })
+        })
     }
 
     const handleUpdateClose = () => {
         patient.genderId = parseInt(patient.genderId);
         patient.medAidNum = parseInt(patient.medAidNum);
         patient.age = parseInt(patient.age);
+        patient.patientId = parseInt(patient.patientId);
+
+        updatePatient(updatePatientData).then(() => {
+            // kry nuwe patients van server af nadat patient geupdate is
+            getPatients().then(response => {
+                setPatients(response.data);
+            });
+
+            alert('Patient updated!');
+        })
 
         setShowUpdate(false);
     }
@@ -38,7 +53,7 @@ export function PatientPage() {
     };
 
     const handleUpdateShow = (updatePatientInfo) => {
-        setUpdatePatient(updatePatientInfo);
+        setUpdatePatientData(updatePatientInfo);
         setShowUpdate(true);
     };
 
@@ -54,7 +69,12 @@ export function PatientPage() {
         const name = event.target.name;
         const value = event.target.value;
         setPatient(values => ({ ...values, [name]: value }))
-        console.log(patient)
+    }
+
+    const handleUpdatePatientChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setUpdatePatientData(values => ({ ...values, [name]: value }))
     }
 
     const getGender = (number) => {
@@ -65,14 +85,6 @@ export function PatientPage() {
         }
     }
 
-    const deleteChosenPatient = (patientId) => {
-        deletePatient(patientId).then(() => {
-            getPatients().then(response => {
-                setPatients(response.data);
-            })
-        })
-
-    }
     //integrity constraint// 
     // op patient table en al die ander tables, gaan daar active kolomme moet wees. set activee na true/falase nie. Jy delete noit data nie en in die geval van n med prac, as n ander dr data sou nodig he vir dinge. POPI act?? fok dit obvs. History van past en present patients with ids. Dead and or alive
     const handleSubmit = (event) => {
@@ -156,21 +168,21 @@ export function PatientPage() {
 
             <Modal show={showUpdate} onHide={() => setShowUpdate(false)}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Update {updatePatient.name} {updatePatient.surname}</Modal.Title>
+                    <Modal.Title>Update {updatePatientData.name} {updatePatientData.surname}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <form className='form-grid'>
-                        <input defaultValue={updatePatient.name} onChange={handleChange} name='name' type='text' placeholder={"Patient Name"} className='patient-form-inputs' />
-                        <input defaultValue={updatePatient.surname} onChange={handleChange} name='surname' type='text' placeholder="Patient Surname" className='patient-form-inputs' />
-                        <input defaultValue={updatePatient.age} onChange={handleChange} name='age' type='text' placeholder="Patient Age" className='patient-form-inputs' />
-                        <select defaultValue={updatePatient.genderId} onChange={handleChange} name='genderId' type='text' className='patient-form-inputs' >
+                        <input defaultValue={updatePatientData.name} onChange={handleUpdatePatientChange} name='name' type='text' placeholder={"Patient Name"} className='patient-form-inputs' />
+                        <input defaultValue={updatePatientData.surname} onChange={handleUpdatePatientChange} name='surname' type='text' placeholder="Patient Surname" className='patient-form-inputs' />
+                        <input defaultValue={updatePatientData.age} onChange={handleUpdatePatientChange} name='age' type='text' placeholder="Patient Age" className='patient-form-inputs' />
+                        <select defaultValue={updatePatientData.genderId} onChange={handleUpdatePatientChange} name='genderId' type='text' className='patient-form-inputs' >
                             <option value="DEFAULT" disabled >Gender</option>
                             <option value="1">Female</option>
                             <option value="2">Male</option>
                         </select>
-                        <input defaultValue={updatePatient.email} onChange={handleChange} name='email' type='email' placeholder="Patient Email" className='patient-form-inputs' />
-                        <input defaultValue={updatePatient.phone} onChange={handleChange} name='phone' type='text' placeholder="Cell Number" className='patient-form-inputs' />
-                        <input defaultValue={updatePatient.medAidNum} onChange={handleChange} name='medAidNum' type='text' placeholder="Medical Aid Number" className='patient-form-inputs' />
+                        <input defaultValue={updatePatientData.email} onChange={handleUpdatePatientChange} name='email' type='email' placeholder="Patient Email" className='patient-form-inputs' />
+                        <input defaultValue={updatePatientData.phone} onChange={handleUpdatePatientChange} name='phone' type='text' placeholder="Cell Number" className='patient-form-inputs' />
+                        <input defaultValue={updatePatientData.medAidNum} onChange={handleUpdatePatientChange} name='medAidNum' type='text' placeholder="Medical Aid Number" className='patient-form-inputs' />
                     </form>
                 </Modal.Body>
                 <Modal.Footer>
