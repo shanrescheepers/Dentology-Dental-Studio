@@ -17,7 +17,7 @@
     $appointment = json_decode( file_get_contents('php://input') );
   
     // set sql statement, this is the action.
-    $sql = "INSERT INTO appointment (dateTime, docId, recepId, isDone) VALUES(:apptId, :dateTime, :docId, :recepId, :isDone)";
+    $sql = "INSERT INTO appointment (dateTime, docId, isDone, patientId, reason) VALUES(:dateTime, :docId, :isDone, :patientId, :reason)";
 
     // This connects to my sql
     $stmt = $conn->prepare($sql);
@@ -25,8 +25,9 @@
     // Setting values into the variables
     $stmt->bindParam(':dateTime', $appointment->dateTime);
     $stmt->bindParam(':docId', $appointment->docId);
-    $stmt->bindParam(':recepId', $appointment->recepId);
     $stmt->bindParam(':isDone', $appointment->isDone);
+    $stmt->bindParam(':patientId', $appointment->patientId);
+    $stmt->bindParam(':reason', $appointment->reason);
 
   
     // Executing above

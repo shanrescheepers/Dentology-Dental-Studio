@@ -10,8 +10,14 @@
   $objDb = new DbConnect;
   $conn = $objDb->connect();
 
-  $sql = "SELECT * FROM appointment";  
+  $appointment = json_decode( file_get_contents('php://input') );
+
+  $sql = "SELECT * FROM appointment WHERE isDone = false && dateTime >= :dateTimeFrom && dateTime <= :dateTimeTo";  
   $stmt = $conn->prepare($sql);
+
+  $stmt->bindParam(':dateTimeFrom', $doctor->dateTimeFrom);
+  $stmt->bindParam(':dateTimeTo', $doctor->dateTimeTo);
+
   $stmt->execute();
   $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
