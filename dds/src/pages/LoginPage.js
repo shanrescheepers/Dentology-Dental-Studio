@@ -1,70 +1,56 @@
+import React, { useEffect, useState } from 'react';
+import '../css/loginPage.css';
+import { getReceptionists } from '../http/receptionist';
+import { useNavigate } from "react-router-dom";
 
-import React, { useState } from 'react';
-import LoginForm from '../components/LoginForm';
+export function LoginPage() {
 
-function LoginPage() {
-    const adminUser = {
+    let navigate = useNavigate();
+    const [details, setDetails] = useState();
+    const [receps, setReceps] = useState({
+        receptionists: []
+    });
 
-        email: "admin@admin.com",
-        password: "admin123"
+    useEffect(() => {
+        getReceptionists().then(response => {
+            setReceps({
+                receptionists: response.data
+            });
+        })
+    }, [])
+
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setDetails(values => ({ ...values, [name]: value }))
     }
 
-    // get array back from my setstate functions
-    // setuser -> get user data, once logged in this state will be set. Get name and email adress to save
-    const [user, setUser] = useState({ name: "", email: "" });
-    // error to catch if details arent correct, with message error to display
-    const [error, setError] = useState("");
+    const handleSubmit = () => {
+        //localStorage.setItem('email', details.email);
 
+        console.log(receps);
+        let confirmedRecep = receps.receptionists.find(recep => recep.email === details.email);
 
-    // function to be called when receptionist attempts to log in ... (details) in hakkies of nie?
-    const Login = details => {
-        console.log(details);
-        // 
-        if (details.email == adminUser.email && details.password == adminUser.password) {
-            console.log("You're logged in!"); //Login created, now for the logout//
-            // pass in new array with set user
-            setUser({
-                // pass the following through obvs
-                name: details.name,
-                email: details.email,
-            })
+        if (!confirmedRecep) {
+            alert("Details incorrect");
+        } else {
+            if (confirmedRecep.password === details.password) {
+                navigate("/dashboard", { replace: true });
+                localStorage.setItem('recep', confirmedRecep);
+            } else {
+                alert("Details incorrect");
+            }
         }
-        else {
-            console.log("Details do not match");
-            // set error here
-            setError("Details do not match");
-        }
-    }
-
-    const Logout = () => {
-        console.log("logout");
-        // below will set user and log us out. but call this in the button below
-        setUser({ name: "", email: "" });
     }
 
     return (
-
-        <div className="Login">
-            {/* run a turnery operator. user email is not equal to nothing, then render a welcome screen */}
-
-            {
-                (user.email != '') ? (
-                    // welcome screen/dash land
-                    <div className='welcome'>
-                        <h2> Welcome, <span>{user.name}</span></h2>
-                        <button onClick={Logout} >Logout</button>
-                    </div>
-                    // if we arent logged in we are going to display so
-                ) : (
-                    // if there is an error, we'll display an error, if there isn't an error, we won't
-                    // pass ythrough Login, call it fromom inside
-                    <LoginForm Login={Login} error={error} />
-
-                )
-            };
-
-
-        </div >
+        <div className='login'>
+            <h1>Login</h1>
+            <input onChange={handleChange} name='email' type='email' placeholder="Receptionist Email" className='recep-form-inputs' />
+            <input onChange={handleChange} name='password' type='password' placeholder="Password" className='recep-form-inputs' autoComplete="on" />
+            <button onClick={() => handleSubmit()}>Login</button>
+        </div>
     )
 }
+
 export default LoginPage;

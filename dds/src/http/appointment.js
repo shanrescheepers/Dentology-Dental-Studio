@@ -1,14 +1,14 @@
 import axios from 'axios';
 
-export function getAppointments(dateTimeFrom, dateTimeTo) {
+export async function getAppointments(dateTimeFrom, dateTimeTo) {
 
-    return axios.get('http://localhost:8888/ddsapi/getAppointment.php')
+    return await axios.get('http://localhost:8888/ddsapi/getAppointment.php')
         .then(data => data)
 }
 
-export function createAppointment(appointment) {
+export async function createAppointment(appointment) {
 
-    return axios.post('http://localhost:8888/ddsapi/createAppointment.php', {
+    return await axios.post('http://localhost:8888/ddsapi/createAppointment.php', {
         dateTime: appointment.dateTime,
         docId: appointment.docId,
         recepId: appointment.recepId,
@@ -19,9 +19,9 @@ export function createAppointment(appointment) {
         .then(data => data)
 }
 
-export function updateAppointment(appointment) {
+export async function updateAppointment(appointment) {
 
-    return axios.post('http://localhost:8888/ddsapi/updateAppointment.php', {
+    return await axios.post('http://localhost:8888/ddsapi/updateAppointment.php', {
         apptId: appointment.apptId,
         dateTime: appointment.dateTime,
         docId: appointment.docId,
@@ -33,8 +33,8 @@ export function updateAppointment(appointment) {
         .then(data => data)
 }
 
-export function deleteAppointment(appointmentId) {
-    return axios.post('http://localhost:8888/ddsapi/deleteAppointment.php', {
+export async function deleteAppointment(appointmentId) {
+    return await axios.post('http://localhost:8888/ddsapi/deleteAppointment.php', {
         // Wrapping - JSONd data wat gestuur word.
         apptId: appointmentId,
     }).then(data => data)

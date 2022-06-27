@@ -32,25 +32,25 @@ export function Dashboard() {
 
     useEffect(() => {
         // hier is patients wat terugkom
-        getAppointments().then(response => {
-            let theDatesAppts = response.data.filter(appt =>
-                convertToDate(appt.dateTime).getTime() <= endDate(startBigCalDate) && convertToDate(appt.dateTime).getTime() >= startDate(startBigCalDate));
-            setAppointments({
-                appts: theDatesAppts
-            });
-        });
-
         getPatients().then(response => {
             setPatients({
                 pats: response.data
             })
-        });
 
-        getDoctors().then(response => {
-            setDoctors({
-                docs: response.data
+            getDoctors().then(response => {
+                setDoctors({
+                    docs: response.data
+                })
+
+                getAppointments().then(response => {
+                    let theDatesAppts = response.data.filter(appt =>
+                        convertToDate(appt.dateTime).getTime() <= endDate(startBigCalDate) && convertToDate(appt.dateTime).getTime() >= startDate(startBigCalDate));
+                    setAppointments({
+                        appts: theDatesAppts
+                    });
+                });
             })
-        })
+        });
     }, [])
 
     const handleDeleteClose = () => {

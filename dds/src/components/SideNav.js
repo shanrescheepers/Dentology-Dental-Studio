@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../css/sideNav.css';
 import dashIcon from '../assets/images/home-grey.svg'
@@ -8,6 +8,17 @@ import patientIcon from '../assets/images/patients-grey.svg'
 import signInSignOutIcon from '../assets/images/login-grey.svg'
 
 export function SideNav() {
+
+    const [loggedIn, setLoggedIn] = useState({});
+
+    useEffect(() => {
+        setLoggedIn(localStorage.getItem('recep'))
+        console.log(loggedIn);
+    })
+
+    const logout = () => {
+
+    }
 
     return (
         <div className="sidenav">
@@ -25,7 +36,7 @@ export function SideNav() {
                 <Link to="/patients" className="patient-icon" >
                     <img src={patientIcon} />
                 </Link>
-                <Link to="" className="signin-signout-icon" >
+                <Link to="/login" className="signin-signout-icon" >
                     <img src={signInSignOutIcon} />
                 </Link>
             </div>
