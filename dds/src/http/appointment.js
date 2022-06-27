@@ -2,10 +2,7 @@ import axios from 'axios';
 
 export function getAppointments(dateTimeFrom, dateTimeTo) {
 
-    return axios.get('http://localhost:8888/ddsapi/getAppointment.php', {
-        dateTimeFrom: dateTimeFrom,
-        dateTimeTo: dateTimeTo
-    })
+    return axios.get('http://localhost:8888/ddsapi/getAppointment.php')
         .then(data => data)
 }
 
@@ -15,7 +12,7 @@ export function createAppointment(appointment) {
         dateTime: appointment.dateTime,
         docId: appointment.docId,
         recepId: appointment.recepId,
-        isDone: appointment.isDone,
+        isDone: false,
         patientId: appointment.patientId,
         reason: appointment.reason
     })
