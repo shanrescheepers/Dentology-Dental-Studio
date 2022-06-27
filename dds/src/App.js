@@ -6,6 +6,7 @@ import { DoctorPage } from './pages/DoctorPage'
 import PatientPage from './pages/PatientPage';
 import SideNav from './components/SideNav';
 import LoginPage from './pages/LoginPage';
+import Dashboard from './pages/Dashboard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // import { useEffect } from 'react';
@@ -25,6 +26,7 @@ function App() {
         <div className="main">
           <Routes>
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/receptionists" element={<ReceptionistPage />} />
             <Route path="/dentists" element={<DoctorPage />} />
             <Route path="/patients" element={<PatientPage />} />

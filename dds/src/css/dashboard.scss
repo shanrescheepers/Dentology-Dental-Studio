@@ -1,0 +1,120 @@
+.dashboard {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: auto;
+    height: 100vh;
+
+    &__content {
+        padding: 16px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 8px;
+
+        &__header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 16px;
+
+            &__calendar {
+                display: grid;
+                place-content: center;
+            }
+
+            &__welcome {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
+                grid-gap: 8px;
+                padding: 16px;
+                background-color: aqua;
+                border-radius: 20px;
+
+                &__title {
+                    font-weight: bold;
+                }
+
+                &__subtitle {
+                    display: grid;
+                    grid-template-columns: 60% 40%;
+                    grid-gap: 8px;
+                }
+            }
+
+
+        }
+
+        &__table {
+            background-color: aqua;
+            display: grid;
+            grid-template-rows: 20% 80%;
+            grid-template-columns: 1fr;
+            padding: 8px;
+
+            &__header {
+                display: grid;
+                grid-template-columns: 80% 20%;
+                background-color: #f0f6ff;
+            }
+
+            &__content {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                align-items: top;
+                padding: 8px 16px;
+                overflow-x: hidden;
+                overflow-y: scroll;
+
+                &__row {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                }
+
+                &__actions {
+                    display: grid;
+                    grid-template-columns: auto auto auto;
+                    grid-gap: 8px;
+                }
+            }
+        }
+    }
+
+    &__sideview {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 40% 40% 20%;
+        background: linear-gradient(324deg, #e4ecf6b8 7%,
+                #f5e4ef93 50%, #e4ecf6aa 100%);
+        border-top-left-radius: 20px;
+        border: 1px solid #f0f6ff;
+        border-bottom-left-radius: 20px;
+        padding: 8px;
+        grid-gap: 16px;
+
+        &__profile {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 20px 20px auto;
+            background-color: #f0f6ff;
+            place-items: center;
+        }
+
+        &__appointments {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(2, 1fr);
+            background-color: aquamarine;
+            place-items: center;
+
+            &__item {
+                display: grid;
+                grid-template-rows: 80% 20%;
+                background-color: #f0f6ff;
+                place-items: center;
+                padding: 8px;
+            }
+        }
+    }
+
+}

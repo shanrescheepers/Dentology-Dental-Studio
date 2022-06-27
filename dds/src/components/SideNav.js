@@ -13,7 +13,7 @@ export function SideNav() {
         <div className="sidenav">
             <div className="dds-logo"></div>
             <div className="nav-links">
-                <Link to="/reception" className="dash-icon">
+                <Link to="/dashboard" className="dash-icon">
                     <img src={dashIcon} />
                 </Link>
                 <Link to="/receptionists" className="receptionist-icon">
