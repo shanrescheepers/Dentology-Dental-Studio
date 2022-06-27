@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, componentDidMount } from 'react';
 import '../css/loginPage.css';
 import { getReceptionists } from '../http/receptionist';
 import { useNavigate } from "react-router-dom";
@@ -10,6 +10,8 @@ export function LoginPage() {
     const [receps, setReceps] = useState({
         receptionists: []
     });
+
+    const [user, setUser] = useState({});
 
     useEffect(() => {
         getReceptionists().then(response => {
@@ -27,16 +29,17 @@ export function LoginPage() {
 
     const handleSubmit = () => {
         //localStorage.setItem('email', details.email);
-
-        console.log(receps);
         let confirmedRecep = receps.receptionists.find(recep => recep.email === details.email);
 
         if (!confirmedRecep) {
             alert("Details incorrect");
         } else {
             if (confirmedRecep.password === details.password) {
+                setUser(confirmedRecep);
                 navigate("/dashboard", { replace: true });
-                localStorage.setItem('recep', confirmedRecep);
+                localStorage.setItem('name', confirmedRecep.name);
+                localStorage.setItem('surname', confirmedRecep.surname);
+                localStorage.setItem('rankId', confirmedRecep.rankId);
             } else {
                 alert("Details incorrect");
             }

@@ -13,7 +13,6 @@ export function SideNav() {
 
     useEffect(() => {
         setLoggedIn(localStorage.getItem('recep'))
-        console.log(loggedIn);
     })
 
     const logout = () => {

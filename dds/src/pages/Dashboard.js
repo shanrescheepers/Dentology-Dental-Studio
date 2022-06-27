@@ -6,10 +6,13 @@ import '../css/dashboard.scss';
 import { getAppointments, deleteAppointment, createAppointment } from '../http/appointment';
 import { getPatients } from '../http/patient';
 import { getDoctors } from '../http/doctor';
+import { useNavigate } from "react-router-dom";
 
 export function Dashboard() {
+    let navigate = useNavigate();
     const [startCalDate, setStartCalDate] = useState(new Date());
     const [startBigCalDate, setStartBigCalDate] = useState(new Date());
+    const [loggedIn, setLoggedIn] = useState({});
 
     const [showDelete, setShowDelete] = useState(false);
     const [showUpdate, setShowUpdate] = useState(false);
@@ -151,6 +154,11 @@ export function Dashboard() {
         setShowDelete(true);
     };
 
+    const logout = () => {
+        localStorage.clear();
+        navigate("/login", { replace: true });
+    }
+
     return (
         <section>
             <div className='dashboard'>
@@ -162,7 +170,6 @@ export function Dashboard() {
                                 <h1 className='dashboard__content__header__welcome__title'>Welcome, X</h1>
                                 <div className='dashboard__content__header__welcome__subtitle'>
                                     <h3>Have a nice day!</h3>
-                                    <span>Image here</span>
                                 </div>
                             </div>
                             <div className='dashboard__content__header__calendar'>
@@ -215,10 +222,8 @@ export function Dashboard() {
                 </div>
                 <div className='dashboard__sideview'>
                     <div className='dashboard__sideview__profile'>
-                        <span>Image here</span>
-                        <span>N&Surname</span>
-                        <span>Rank</span>
-                        <button>Log Out</button>
+                        <span>{localStorage.getItem('name')} {localStorage.getItem('surname')}</span>
+                        <button onClick={() => logout()}>Log Out</button>
                     </div>
                     <div className='dashboard__sideview__appointments'>
                         <div className='dashboard__sideview__appointments__item'>
