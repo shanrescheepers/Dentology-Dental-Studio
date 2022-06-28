@@ -1,4 +1,4 @@
-import { React } from 'react';
+import { React, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { ReceptionistPage } from './pages/ReceptionistPage'
@@ -15,18 +15,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
-  // useEffect(() => {
-  //   getReceptionists().then(data => console.log(data));
-  // }, [])
+  const [data, setData] = useState(false);
+
+  const childToParent = (childdata) => {
+    setData(childdata);
+  }
 
   return (
     <BrowserRouter>
       <div className='app-view'>
-        <SideNav />
+        <SideNav parentToChild={data} />
         <div className="main">
           <Routes>
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard childToParent={childToParent} />} />
             <Route path="/receptionists" element={<ReceptionistPage />} />
             <Route path="/dentists" element={<DoctorPage />} />
             <Route path="/patients" element={<PatientPage />} />

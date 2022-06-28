@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { createDoctor, deleteDoctor, getDoctors, updateDoctor } from '../http/doctor';
 import { Modal, Button } from 'react-bootstrap';
 import '../css/doctorPage.css';
-import patientProfilePicturePlaceholder from '../assets/images/female1.jpeg';
+import patientProfilePicturePlaceholder from '../assets/images/tooth.svg';
 import deleteIcon from '../assets/images/dlt-icon.svg'
 import editIcon from '../assets/images/edit-icon.svg'
 

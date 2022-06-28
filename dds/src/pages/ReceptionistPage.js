@@ -352,10 +352,10 @@ export function ReceptionistPage() {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={() => setShowUpdate(false)}>
-                        No
+                        Cancel
                     </Button>
                     <Button variant="primary" onClick={handleUpdateClose}>
-                        Yes
+                        Confirm
                     </Button>
                 </Modal.Footer>
             </Modal>

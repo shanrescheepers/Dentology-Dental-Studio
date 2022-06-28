@@ -7,8 +7,9 @@ import { getAppointments, deleteAppointment, createAppointment } from '../http/a
 import { getPatients } from '../http/patient';
 import { getDoctors } from '../http/doctor';
 import { useNavigate } from "react-router-dom";
+import ToDoList from '../components/ToDo';
 
-export function Dashboard() {
+export function Dashboard({ childToParent }) {
     let navigate = useNavigate();
     const [startCalDate, setStartCalDate] = useState(new Date());
     const [startBigCalDate, setStartBigCalDate] = useState(new Date());
@@ -34,6 +35,13 @@ export function Dashboard() {
     const [updateAppointmentData, setUpdateAppointmentData] = useState({});
 
     useEffect(() => {
+        const data = {
+            loggedIn: localStorage.getItem('loggedIn'),
+            rank: localStorage.getItem('rankId')
+        };
+        console.log(data);
+        childToParent(data)
+
         // hier is patients wat terugkom
         getPatients().then(response => {
             setPatients({
@@ -71,6 +79,21 @@ export function Dashboard() {
         })
     }
 
+    const handleUpdateClose = () => {
+        deleteAppointment(appointmentId).then(() => {
+            getAppointments().then(response => {
+                let theDatesAppts = response.data.filter(appt =>
+                    convertToDate(appt.dateTime).getTime() <= endDate(startBigCalDate) && convertToDate(appt.dateTime).getTime() >= startDate(startBigCalDate));
+                setAppointments({
+                    appts: theDatesAppts
+                });
+
+                setShowUpdate(false);
+                alert('Appointment marked as done!');
+            });
+        })
+    }
+
     const startDate = (date) => {
         let newDate = new Date(date);
         newDate.setHours(24, 0, 0, 0);
@@ -88,7 +111,7 @@ export function Dashboard() {
 
     const getDoctor = (id) => {
         let doctor = doctors.docs.find(doc => doc.doctorId === id.toString());
-        return `${doctor.name} ${doctor.surname}`
+        return `${doctor?.name} ${doctor?.surname}`
     }
 
     const getPatient = (id) => {
@@ -144,8 +167,8 @@ export function Dashboard() {
 
     };
 
-    const handleUpdateShow = (updateAppointmentData) => {
-        setUpdateAppointmentData(updateAppointmentData);
+    const handleUpdateShow = (id) => {
+        setAppointmentId(id);
         setShowUpdate(true);
     };
 
@@ -154,9 +177,19 @@ export function Dashboard() {
         setShowDelete(true);
     };
 
+    const getRank = (number) => {
+        if (number === "1") {
+            return "Head"
+        } else {
+            return "Assistant";
+        }
+    }
+
     const logout = () => {
-        localStorage.clear();
         navigate("/login", { replace: true });
+        window.location.reload()
+        localStorage.clear();
+
     }
 
     return (
@@ -164,13 +197,15 @@ export function Dashboard() {
             <div className='dashboard'>
                 <div className='dashboard__content'>
                     <div className='dashboard__content__top'>
-                        <h1>Dashboard</h1>
+                        <h1 className='h1'>Dashboard</h1>
                         <div className='dashboard__content__header'>
                             <div className='dashboard__content__header__welcome'>
-                                <h1 className='dashboard__content__header__welcome__title'>Welcome, X</h1>
+                                <h1 className='dashboard__content__header__welcome__title'>Welcome, {localStorage.getItem('name')}</h1>
                                 <div className='dashboard__content__header__welcome__subtitle'>
                                     <h3>Have a nice day!</h3>
+                                    <div className='dashboard__content__header__welcome__subtitle__image'></div>
                                 </div>
+
                             </div>
                             <div className='dashboard__content__header__calendar'>
                                 <DatePicker
@@ -200,7 +235,7 @@ export function Dashboard() {
                                 month: 'short',
                                 year: 'numeric'
                             })}</h1>
-                            <button onClick={() => handleCreateShow()}>Add Apt</button>
+                            <button onClick={() => handleCreateShow()} style={{ backgroundColor: "#8D8CF2", borderRadius: "40px", height: "40px", alignContent: "center", width: "170px", border: "1px solid #ffff", fontSize: "16px", color: "#ffff" }}>Add Appointment <span style={{ color: "#ffff", fontSize: "20px", padding: "6px" }}>+</span></button>
                         </div>
                         <div className='dashboard__content__table__content'>
                             <div className='dashboard__content__table__content__row'>
@@ -215,6 +250,10 @@ export function Dashboard() {
                                     <span>{getPatient(appt.patientId)}</span>
                                     <span>{convertToTime(appt.dateTime)}</span>
                                     <span>{appt.reason}</span>
+                                    <div className='dashboard__content__table__content__actions'>
+                                        <button onClick={() => handleUpdateShow(appt.apptId)}>✓</button>
+                                        <button onClick={() => handleDeleteShow(appt.apptId)}>✕</button>
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -222,18 +261,18 @@ export function Dashboard() {
                 </div>
                 <div className='dashboard__sideview'>
                     <div className='dashboard__sideview__profile'>
-                        <span>{localStorage.getItem('name')} {localStorage.getItem('surname')}</span>
-                        <button onClick={() => logout()}>Log Out</button>
+                        <span className='dashboard__sideview__profile'>{localStorage.getItem('name')} {localStorage.getItem('surname')}</span>
+                        <span>{getRank(localStorage.getItem('rankId'))}</span>
+                        <span className='dashboard__sideview__profile__image'></span>
+                        <button onClick={() => logout()} style={{ color: "#2b2b2b", padding: "6px", borderRadius: "20px", width: "100px" }}>Log Out</button>
                     </div>
                     <div className='dashboard__sideview__appointments'>
-                        <div className='dashboard__sideview__appointments__item'>
-                            <h1>7</h1>
-                            <span>this week</span>
+                        <div className='dashboard__sideview__appointments__todo'>
+                            <ToDoList />
                         </div>
-                        <div className='dashboard__sideview__appointments__item'>
-                            <h1>7</h1>
-                            <span>today</span>
-                        </div>
+                        {/* <div className='dashboard__sideview__appointments__item'>
+
+                        </div> */}
                     </div>
                 </div>
             </div>
@@ -276,6 +315,36 @@ export function Dashboard() {
                         No
                     </Button>
                     <Button variant="primary" onClick={() => handleCreateClose()}>
+                        Yes
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+            <Modal show={showDelete} onHide={() => setShowDelete(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Delete Appointment?</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Are you sure you would like to delete this appointment?</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setShowDelete(false)}>
+                        No
+                    </Button>
+                    <Button variant="primary" onClick={handleDeleteClose}>
+                        Yes
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+            <Modal show={showUpdate} onHide={() => setShowUpdate(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Mark Appointment?</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Are you sure you would like to mark this appointment as done?</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setShowUpdate(false)}>
+                        No
+                    </Button>
+                    <Button variant="primary" onClick={handleUpdateClose}>
                         Yes
                     </Button>
                 </Modal.Footer>

@@ -40,6 +40,7 @@ export function LoginPage() {
                 localStorage.setItem('name', confirmedRecep.name);
                 localStorage.setItem('surname', confirmedRecep.surname);
                 localStorage.setItem('rankId', confirmedRecep.rankId);
+                localStorage.setItem('loggedIn', true);
             } else {
                 alert("Details incorrect");
             }

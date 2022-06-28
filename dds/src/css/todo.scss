@@ -1,0 +1,32 @@
+.todo {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+
+    &__actions__todo,
+    button {
+        background-color: #FED2EA;
+        color: black;
+        border: none;
+        padding: 8px;
+        grid-gap: 8px;
+        margin: 8px;
+        display: grid;
+        grid-template-columns: 1fr;
+
+
+        &__check {
+            background-color: #fff;
+            display: grid;
+        }
+    }
+
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr;
+        place-items: center;
+        grid-gap: 8px;
+    }
+
+
+}
