@@ -117,13 +117,12 @@ npm start
 ## Features and Functionality
 
 <!-- note how you can use your gitHub link. Just make a path to your assets folder -->
-![image2](https://raw.githubusercontent.com/shanrescheepers//Dentology-Dental-Studio/dds/src/assets/images/)
+![image2](https://raw.githubusercontent.com/shanrescheepers//Dentology-Dental-Studio/dds/src/assets/images/showcase_5.jpg)
 
 ### Dentology Dental Studio Dashboard Screen Display
 
-Using the sportsdata io MMA API, I collected and collated all 2022 UFC events data into a simple unchallenging Angular back and foreground!
 
-![image3](https://raw.githubusercontent.com/shanrescheepers/Dentology-Dental-Studio/dds/src/assets/images/)
+![image3](https://raw.githubusercontent.com/shanrescheepers/Dentology-Dental-Studio/dds/src/assets/images/showcase_4.jpg)
 
 
 
@@ -187,6 +186,7 @@ What aspects of this final build contribute to the `Above And Beyond` Component 
 * GRID SYSTEM 
 * React Date Picker fully reactive and functional wrt choosing appointment dates and times.
 * Injecting 'Reusable' components as well as a faster way of developing the front ui of a web app.
+* To Do List Section
 
 
 
@@ -194,7 +194,6 @@ What aspects of this final build contribute to the `Above And Beyond` Component 
 <!-- stipulate functionality and improvements that can be implemented in the future. -->
 
 * All features : Edit & Delete of Appointments
-* To Do Section/ Sticky Note Section
 * Profile Image Uploads
 * Socket.io Chatroom section
 * SMS sending ability to 'patients' to remind them of their appointments
@@ -205,18 +204,22 @@ What aspects of this final build contribute to the `Above And Beyond` Component 
 
 ### Mockups
 
-![image9](https://raw.githubusercontent.com/shanrescheepers/Dentology-Dental-Studio/dds/src/assets/images/.jpg)
+![image9](https://raw.githubusercontent.com/shanrescheepers/Dentology-Dental-Studio/dds/src/assets/images/showcase_1.jpg)
 <br>
 <br>
 
-![image10](https://raw.githubusercontent.com/shanrescheepers/Dentology-Dental-Studio/dds/src/assets/images/)
+![image10](https://raw.githubusercontent.com/shanrescheepers/Dentology-Dental-Studio/dds/src/assets/images/showcase_2.jpg)
+<br>
+<br>
+![image11](https://raw.githubusercontent.com/shanrescheepers/Dentology-Dental-Studio/dds/src/assets/images/showcase_3.jpg)
+<br>
 
 <!-- VIDEO DEMONSTRATION -->
 ### Video Demonstration
 
 To see a run through of the application, click below:
 
-[View Demonstration](https://www.loom.com/my-videos/GITHUB_shanrescheepers)
+[View Demonstration](https://loom.com/share/folder/1605f52dbfa3454392c08d0c6556bc46)
 
 
 See the [open issues](https://github.com/shanrescheepers/Dentology-Dental-Studio/issues) for a list of proposed features (and known issues).
