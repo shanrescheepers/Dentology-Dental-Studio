@@ -1,0 +1,39 @@
+.todo {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+}
+
+.todo__actions__todo,
+.todo button {
+  background-color: #FED2EA;
+  color: black;
+  border: none;
+  padding: 8px;
+  grid-gap: 8px;
+  margin: 8px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+}
+
+.todo__actions__todo__check,
+.todo button__check {
+  background-color: #fff;
+  display: -ms-grid;
+  display: grid;
+}
+
+.todo__container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  place-items: center;
+  grid-gap: 8px;
+}
+/*# sourceMappingURL=todo.css.map */
