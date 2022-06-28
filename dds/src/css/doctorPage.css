@@ -1,7 +1,7 @@
 .add-doctor {
-    background: linear-gradient(324deg, #e4ecf6b8 7%, 
-    #f5e4ef93 50%,#e4ecf6aa 100%);
-    border-top-left-radius: 20px;
+    background-color: #fff;
+    box-shadow: 10px 10px 24px 0 rgba(0, 0, 0, 0.2),
+    -12px -10px 24px 0 rgba(255, 255, 255, 0.5);
     border: 1px solid #f0f6ff;
     border-bottom-left-radius: 20px;
 }
