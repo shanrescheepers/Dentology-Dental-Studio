@@ -111,7 +111,7 @@ export function Dashboard({ childToParent }) {
 
     const getDoctor = (id) => {
         let doctor = doctors.docs.find(doc => doc.doctorId === id.toString());
-        return `${doctor?.name} ${doctor?.surname}`
+        return `${doctor.name} ${doctor.surname}`
     }
 
     const getPatient = (id) => {
@@ -261,7 +261,7 @@ export function Dashboard({ childToParent }) {
                 </div>
                 <div className='dashboard__sideview'>
                     <div className='dashboard__sideview__profile'>
-                        <span className='dashboard__sideview__profile'>{localStorage.getItem('name')} {localStorage.getItem('surname')}</span>
+                        <span className='dashboard__sideview__profile__name'>{localStorage.getItem('name')} {localStorage.getItem('surname')}</span>
                         <span>{getRank(localStorage.getItem('rankId'))}</span>
                         <span className='dashboard__sideview__profile__image'></span>
                         <button onClick={() => logout()} style={{ color: "#2b2b2b", padding: "6px", borderRadius: "20px", width: "100px" }}>Log Out</button>
