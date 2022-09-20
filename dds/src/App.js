@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/Dashboard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 // import { useEffect } from 'react';
 // import { createReceptionist, deleteReceptionist, updateReceptionist, getReceptionists } from './http/receptionist';
 // REËL: As my terminal nie die groen SUCCESFULLY compiled wys nie, maak jy nie jou donerse file of laptop toe nie. Right? Right? RIGHT.
