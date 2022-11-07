@@ -30,7 +30,7 @@ function App() {
         <SideNav parentToChild={data} />
         <div className="main">
           <Routes>
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/" element={<LoginPage />} />
             <Route path="/dashboard" element={<Dashboard childToParent={childToParent} />} />
             <Route path="/receptionists" element={<ReceptionistPage />} />
             <Route path="/dentists" element={<DoctorPage />} />
