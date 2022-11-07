@@ -1,5 +1,12 @@
 .app-view {
   display: grid;
   grid-template-columns: 10% auto;
-background-color: #fbc5e3;
+  background-color: #fbc5e3;
+background-image: url('../src/assets/bg4.png');
+background-size:cover;
+background-repeat: no-repeat;
+
 }
+
+
+

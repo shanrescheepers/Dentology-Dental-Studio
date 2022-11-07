@@ -4,11 +4,16 @@ import { createPatient, getPatients, deletePatient, updatePatient } from '../htt
 import { Modal, Button } from 'react-bootstrap';
 import '../css/patientPage.css';
 import patientProfilePicturePlaceholder from '../assets/images/female1.jpeg';
+import patientFemalePicture from '../assets/female.png';
+import patientMalePicture from '../assets/male.png';
 import deleteIcon from '../assets/images/dlt-icon.svg'
 import editIcon from '../assets/images/edit-icon.svg'
 import historyIcon from '../assets/images/patient-history-icon.svg'
 
 export function PatientPage() {
+
+    const [image, setImage] = useState();
+
     const [showDelete, setShowDelete] = useState(false);
     const [showUpdate, setShowUpdate] = useState(false);
 
@@ -198,6 +203,14 @@ export function PatientPage() {
         }
     }
 
+    const getpatientimage = (number) => {
+        if (number === "1") {
+            return patientFemalePicture
+        } else {
+            return patientMalePicture
+        }
+    }
+
     //integrity constraint// 
     // op patient table en al die ander tables, gaan daar active kolomme moet wees. set activee na true/falase nie. Jy delete noit data nie en in die geval van n med prac, as n ander dr data sou nodig he vir dinge. POPI act?? fok dit obvs. History van past en present patients with ids. Dead and or alive
     const handleSubmit = (event) => {
@@ -239,7 +252,7 @@ export function PatientPage() {
                     {patients.map((data, idx) => (
                         // key word terug gestuur na die API toe, die key, verwys na die patient ID se nr. As DELETE gebruik word, is die specification makliker om die 'key idx' te delete.
                         <div key={data.patientId} className='patient-card'>
-                            <img src={patientProfilePicturePlaceholder} alt="patient profile" className='patient-profile-picture' />
+                            <img src={getpatientimage(data.genderId)} alt="patient profile" className='patient-profile-picture' />
                             <h6 className='h6-patients'>{data.name} {data.surname}</h6>
                             <span className='card-text-patients'>{data.medAidNum}</span>
                             <span className='card-text-patients'>{getGender(data.genderId)}</span>

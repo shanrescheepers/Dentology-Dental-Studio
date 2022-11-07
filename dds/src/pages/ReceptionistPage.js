@@ -5,7 +5,8 @@ import '../css/receptionistPage.css';
 import patientProfilePicturePlaceholder from '../assets/images/female1.jpeg';
 import deleteIcon from '../assets/images/dlt-icon.svg'
 import editIcon from '../assets/images/edit-icon.svg'
-
+import headReceptionistImage from '../assets/receptionist.png'
+import assistantReceptionistImage from '../assets/assistent.png'
 export function ReceptionistPage() {
     const [showDelete, setShowDelete] = useState(false);
     const [showUpdate, setShowUpdate] = useState(false);
@@ -221,6 +222,14 @@ export function ReceptionistPage() {
         }
     }
 
+    const getreceptionistimage = (number) => {
+        if (number === "1") {
+            return headReceptionistImage
+        } else {
+            return assistantReceptionistImage
+        }
+    }
+
     //integrity constraint// 
     // op patient table en al die ander tables, gaan daar active kolomme moet wees. set activee na true/falase nie. Jy delete noit data nie en in die geval van n med prac, as n ander dr data sou nodig he vir dinge. POPI act?? fok dit obvs. History van past en present patients with ids. Dead and or alive
     const handleSubmit = (event) => {
@@ -266,7 +275,7 @@ export function ReceptionistPage() {
                     {receps.map((data, idx) => (
                         // key word terug gestuur na die API toe, die key, verwys na die patient ID se nr. As DELETE gebruik word, is die specification makliker om die 'key idx' te delete.
                         <div key={data.recepId} className='recep-card'>
-                            <img src={patientProfilePicturePlaceholder} alt="recep profile" className='recep-profile-picture' />
+                            <img src={getreceptionistimage(data.rankId)} alt="recep profile" className='recep-profile-picture' />
                             <h6 className='h6-receps'>{data.name} {data.surname}</h6>
                             <span className='card-text-receps'>{getRank(data.rankId)}</span>
                             <span className='card-text-receps'>{getGender(data.genderId)}</span>

@@ -24,7 +24,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className='app-view'>
+
+      <div className='app-view img'>
         <SideNav parentToChild={data} />
         <div className="main">
           <Routes>

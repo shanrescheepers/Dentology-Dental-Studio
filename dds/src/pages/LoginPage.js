@@ -1,7 +1,9 @@
 import React, { useEffect, useState, componentDidMount } from 'react';
-import '../css/loginPage.css';
+import '../css/loginPage.scss';
 import { getReceptionists } from '../http/receptionist';
 import { useNavigate } from "react-router-dom";
+import Lottie from 'react-lottie';
+import * as animationData from '../lottie/login.json'
 
 export function LoginPage() {
 
@@ -46,13 +48,38 @@ export function LoginPage() {
             }
         }
     }
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice'
+        }
+    };
 
     return (
         <div className='login'>
-            <h1>Login</h1>
-            <input onChange={handleChange} name='email' type='email' placeholder="Receptionist Email" className='recep-form-inputs' />
-            <input onChange={handleChange} name='password' type='password' placeholder="Password" className='recep-form-inputs' autoComplete="on" />
-            <button onClick={() => handleSubmit()}>Login</button>
+            <div className='login__details'>
+                <div className='login__details__h1'>
+                    <h2>Dentology Dental Studio, for all your dental needs and wants.</h2><br /> <p style={{ 'marginTop': '-20px' }}>Please enter your details below to continue to the workspace!</p>
+                </div>
+
+
+                <input onChange={handleChange} name='email' type='email' placeholder="Receptionist Email" className='login__details__input' />
+                <input onChange={handleChange} name='password' type='password' placeholder="Password" className='login__details__input2' autoComplete="on" />
+                <button className='login__details__button' onClick={() => handleSubmit()}>Login</button>
+
+
+            </div>
+            <div className='login__lottie' >
+                <Lottie className='login__lottie' options={defaultOptions}
+                    // height={400}
+                    // width={400}
+                    style={{ "borderRadius": '30px', "marginRight": "50px" }}
+                    isStopped={false}
+                    isPaused={false} />
+                <h4 style={{ 'textAlign': 'center', 'color': '#fff' }}>BECAUSE A BEAUTIFUL SMILE IS ALWAYS IN STYLE</h4>
+            </div>
         </div>
     )
 }

@@ -1,7 +1,0 @@
-.login {
-    display: grid;
-    grid-template-columns: 1fr;
-    place-items: center;
-    grid-gap: 8px;
-    padding-top: 20px
-}
