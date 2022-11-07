@@ -128,8 +128,8 @@
     &__sideview {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 40% 40% 20%;
-        background: #ffff;
+        grid-template-rows: 35% 30% 10%;
+        // background: #ffff;
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
         padding: 8px;
@@ -140,9 +140,10 @@
         &__profile {
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: 20% 20% 40% 20%;
+            grid-template-rows: 10% 10% 40%;
             background-color: #ffffff;
             place-items: center;
+            text-align: center;
             border-radius: 10px;
             box-shadow: 10px 10px 24px 0 rgba(0, 0, 0, 0.2),
                 -12px -10px 24px 0 rgba(255, 255, 255, 0.5);
@@ -154,14 +155,14 @@
 
             &__image {
                 display: grid;
-                grid-template-columns: 1fr;
                 background-image: url(../assets/images/toothlove.svg);
+
                 background-size: contain;
                 height: 100px;
                 width: 200px;
                 background-repeat: no-repeat;
                 place-content: center;
-                margin-left: 80px;
+                margin-left: 90px;
             }
 
         }
@@ -169,6 +170,7 @@
 
         &__appointments {
             display: grid;
+            margin-top: 30px;
             grid-template-columns: 1fr;
             grid-template-rows: auto;
             place-items: center;
@@ -180,7 +182,7 @@
                 background-color: #f9fbff;
                 padding: 8px;
                 grid-gap: 16px;
-                margin-top: 30px;
+                margin-top: 70px;
                 border-radius: 20px;
                 box-shadow: 10px 10px 24px 0 rgba(0, 0, 0, 0.2),
                     -12px -10px 24px 0 rgba(255, 255, 255, 0.5);

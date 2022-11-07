@@ -14,7 +14,6 @@ export function ReceptionistPage() {
     const [recep, setRecep] = useState({});
     const [receps, setReceps] = useState([]);
 
-
     const [recepId, setRecepId] = useState(0);
     const [updateRecepData, setUpdateRecepData] = useState({});
 
@@ -280,8 +279,8 @@ export function ReceptionistPage() {
                             <span className='card-text-receps'>{getRank(data.rankId)}</span>
                             <span className='card-text-receps'>{getGender(data.genderId)}</span>
                             <span className='card-text-receps'>{data.age}</span>
-                            <span className='card-text-receps'>{data.phone}</span>
-                            <span className='card-text-receps'>{data.email}</span>
+                            <span className='card-text-receps'><a href={"tel:" + data.phone}>{data.phone}</a></span>
+                            <span className='card-text-receps'><a href={"mailto:" + data.email}>{data.email}</a></span>
                             <div className='button-group'>
                                 <img className='icon-button' onClick={() => handleUpdateShow(data)} src={editIcon} alt="icon" />
                                 {/* Dis hoe ons onclick gebruik in react. React render die apge on load dit trigger die gewone manier van onClick (onClick="method()") */}
@@ -293,8 +292,8 @@ export function ReceptionistPage() {
                 </div>
             </div>
             <div className='add-recep'>
-                <h3 className='plus-title'>+Receptionist</h3>
-                <span className='plus-recep-span'>Add a new receptionist to DDS</span>
+                <h3 className='plus-title-recep'>+Receptionist</h3>
+                <span className='plus-recep-span' style={{ 'color': 'black', 'fontSize': '20px', 'marginTop': '8px' }}>Add a new receptionist to DDS</span>
                 <form name='addRecepForm' className='form-grid' onSubmit={handleSubmit}>
                     <input onChange={handleChange} name='name' type='text' placeholder="Receptionist Name" className='recep-form-inputs' />
                     <input onChange={handleChange} name='surname' type='text' placeholder="Receptionist Surname" className='recep-form-inputs' />

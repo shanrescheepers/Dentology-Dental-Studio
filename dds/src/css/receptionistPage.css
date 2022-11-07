@@ -1,8 +1,6 @@
 .add-recep {
-    background: linear-gradient(324deg, #e4ecf6b8 7%, 
-    #f5e4ef93 50%,#e4ecf6aa 100%);
-    border-top-left-radius: 20px;
-    border: 1px solid #f0f6ff;
+    box-shadow: 10px 10px 24px 0 rgba(0, 0, 0, 0.2),
+    -12px -10px 24px 0 rgba(50, 50, 50, 0.197);
     border-bottom-left-radius: 20px;
 }
 
@@ -37,7 +35,7 @@
     border-radius: 30px !important;
     border: 1px solid #e8e7e7c6;
     width: 200px;
-    background-color: #fffffff1;
+    background-color: #ffffffae;
     box-shadow: rgba(182, 182, 185, 0.127) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.163) 0px 18px 36px -18px inset;
 }
 
@@ -76,10 +74,14 @@
     padding-top: 16px;
 }
 
-.plus-title {
+.plus-title-recep {
     padding-top: 20px;
     margin: 0 16px 0 16px;
     color: #FC7F8B;
+    background-color: #fff;
+    padding: 8px;
+    margin-top: 8px;
+    border-radius: 10px;
 }
 /* apt dents reps self */
 
@@ -109,7 +111,7 @@
     justify-content: center;
     width: fit-content;
     border-radius: 20px;
-    border: 1px solid rgb(205, 204, 204);
+    border: 0px solid rgb(205, 204, 204);
     background-color: #fff;
     margin-left: 100px;
     font-family: 'Roboto', sans-serif;
@@ -120,8 +122,8 @@
     justify-content: center;
     width: fit-content;
     border-radius: 20px;
-    border: 1px solid rgb(205, 204, 204);
-    background-color: rgb(94, 175, 246);
+    border: 0px solid rgb(205, 204, 204);
+    background-color:#FDAAD7;
     margin-left: 100px;
 }
 

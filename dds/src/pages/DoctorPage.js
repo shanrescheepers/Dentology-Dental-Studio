@@ -253,8 +253,8 @@ export function DoctorPage() {
                             <span className='card-text-doctors'>{getSpes(data.spesId)}</span>
                             <span className='card-text-doctors'>{getGender(data.genderId)}</span>
                             <span className='card-text-doctors'>{data.age}</span>
-                            <span className='card-text-doctors'>{data.phone}</span>
-                            <span className='card-text-doctors'>{data.email}</span>
+                            <span className='card-text-doctors'><a href={"tel:" + data.phone}>{data.phone}</a></span>
+                            <span className='card-text-doctors'><a href={"mailto:" + data.email}>{data.email}</a></span>
                             <div className='button-group'>
                                 <img className='icon-button' onClick={() => handleUpdateShow(data)} src={editIcon} alt="icon" />
                                 {/* Dis hoe ons onclick gebruik in react. React render die apge on load dit trigger die gewone manier van onClick (onClick="method()") */}
@@ -267,7 +267,7 @@ export function DoctorPage() {
             </div>
             <div className='add-doctor'>
                 <h3 className='plus-title'>+Doctor</h3>
-                <span className='plus-doctor-span'>Add a new doctor to DDS</span>
+                <span className='plus-doctor-span' style={{ 'color': 'black', 'fontSize': '20px', 'marginTop': '8px' }}>Add a new doctor to DDS</span>
                 <form name='addDoctorForm' className='form-grid' onSubmit={handleSubmit}>
                     <input onChange={handleChange} name='name' type='text' placeholder="Doctor Name" className='doctor-form-inputs' />
                     <input onChange={handleChange} name='surname' type='text' placeholder="Doctor Surname" className='doctor-form-inputs' />

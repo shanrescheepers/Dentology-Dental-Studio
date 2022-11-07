@@ -257,9 +257,9 @@ export function PatientPage() {
                             <span className='card-text-patients'>{data.medAidNum}</span>
                             <span className='card-text-patients'>{getGender(data.genderId)}</span>
                             <span className='card-text-patients'>{data.age}</span>
-                            <span className='card-text-patients'>{data.phone}</span>
-                            <span className='card-text-patients'>{data.email}</span>
-                            <div className='button-group'>
+                            <span className='card-text-patients'><a href={"tel:" + data.phone}>{data.phone}</a></span>
+                            <span className='card-text-patients'><a href={"mailto:" + data.email}>{data.email}</a></span>
+                            <div className='button-group-patient'>
                                 <img className='icon-button' onClick={() => handleUpdateShow(data)} src={editIcon} alt="icon" />
                                 {/* Dis hoe ons onclick gebruik in react. React render die apge on load dit trigger die gewone manier van onClick (onClick="method()") */}
                                 {/* https://stackoverflow.com/questions/33846682/react-onclick-function-fires-on-render */}
@@ -272,7 +272,7 @@ export function PatientPage() {
             </div>
             <div className='add-patient'>
                 <h3 className='plus-title'>+Patient</h3>
-                <span className='plus-patient-span'>Add a new patient to DDS</span>
+                <span className='plus-patient-span' style={{ 'color': 'black', 'fontSize': '20px', 'marginTop': '8px' }}>Add a new patient to DDS</span>
                 <form name='addPatientForm' className='form-grid' onSubmit={handleSubmit}>
                     <input onChange={handleChange} name='name' type='text' placeholder="Patient Name" className='patient-form-inputs' />
                     <input onChange={handleChange} name='surname' type='text' placeholder="Patient Surname" className='patient-form-inputs' />

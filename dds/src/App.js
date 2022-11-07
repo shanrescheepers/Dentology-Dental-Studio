@@ -7,6 +7,7 @@ import PatientPage from './pages/PatientPage';
 import SideNav from './components/SideNav';
 import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/Dashboard';
+import FourOhFour from './pages/FourOhFour'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -34,6 +35,7 @@ function App() {
             <Route path="/receptionists" element={<ReceptionistPage />} />
             <Route path="/dentists" element={<DoctorPage />} />
             <Route path="/patients" element={<PatientPage />} />
+            <Route path="*" element={<FourOhFour />} />
           </Routes>
         </div>
       </div>
